@@ -24,7 +24,7 @@ La base de datos existente nombra sus tablas en español (`usuarios`, `medicamen
 | POST | `/api/auth/register` | Público |
 | POST | `/api/auth/login` | Público |
 | POST | `/api/contacto` | Público |
-| GET | `/api/medicamentos?page=1&limit=10` | Público |
+| GET | `/api/medicamentos?page=1&limit=6&categoria=Analgésicos` | Público |
 | GET | `/api/medicamentos/:id` | Público |
 | POST | `/api/medicamentos` | Admin |
 | PUT | `/api/medicamentos/:id` | Admin |

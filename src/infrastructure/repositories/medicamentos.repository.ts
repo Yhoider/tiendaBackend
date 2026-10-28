@@ -1,5 +1,6 @@
 
 import { prisma } from "../database/prisma.js";
+import type { Prisma } from "../../generated/prisma/client.js";
 import type {
   ActualizarMedicamento,
   CrearMedicamento,
@@ -10,15 +11,15 @@ export class MedicamentosRepository {
     categorias: { select: { id: true, nombre: true } },
   } as const;
 
-  async listarActivos(page: number, limit: number) {
-
-    const where = { activo: true, requiere_receta: false };
+  async listarActivos(page: number, limit: number, categoria?: string) {
+    const where: Prisma.medicamentosWhereInput = {
+      activo: true,
+      requiere_receta: false,
+      ...(categoria ? { categorias: { nombre: { equals: categoria, mode: "insensitive" } } } : {}),
+    };
     const [data, total] = await prisma.$transaction([
       prisma.medicamentos.findMany({
-      where: {
-        activo: true,
-        requiere_receta: false,
-      },
+      where,
       include: this.includeCategory,
       orderBy: {
         nombre: "asc",
