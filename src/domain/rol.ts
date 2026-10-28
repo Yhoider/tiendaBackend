@@ -1,4 +1,3 @@
-/** Roles disponibles en FarmaYa; coinciden con los valores de la tabla roles. */
 export const roles = ["cliente", "supervisor", "admin"] as const;
 export type Role = (typeof roles)[number];
 

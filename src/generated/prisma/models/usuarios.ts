@@ -1,0 +1,2040 @@
+import type * as runtime from "@prisma/client/runtime/client"
+import type * as $Enums from "../enums.js"
+import type * as Prisma from "../internal/prismaNamespace.js"
+
+/**
+ * Model usuarios
+ * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+ */
+export type usuariosModel = runtime.Types.Result.DefaultSelection<Prisma.$usuariosPayload>
+
+export type AggregateUsuarios = {
+  _count: UsuariosCountAggregateOutputType | null
+  _avg: UsuariosAvgAggregateOutputType | null
+  _sum: UsuariosSumAggregateOutputType | null
+  _min: UsuariosMinAggregateOutputType | null
+  _max: UsuariosMaxAggregateOutputType | null
+}
+
+export type UsuariosAvgAggregateOutputType = {
+  rol_id: number | null
+}
+
+export type UsuariosSumAggregateOutputType = {
+  rol_id: number | null
+}
+
+export type UsuariosMinAggregateOutputType = {
+  id: string | null
+  nombre: string | null
+  correo: string | null
+  password_hash: string | null
+  rol_id: number | null
+  activo: boolean | null
+  created_at: Date | null
+  updated_at: Date | null
+}
+
+export type UsuariosMaxAggregateOutputType = {
+  id: string | null
+  nombre: string | null
+  correo: string | null
+  password_hash: string | null
+  rol_id: number | null
+  activo: boolean | null
+  created_at: Date | null
+  updated_at: Date | null
+}
+
+export type UsuariosCountAggregateOutputType = {
+  id: number
+  nombre: number
+  correo: number
+  password_hash: number
+  rol_id: number
+  activo: number
+  created_at: number
+  updated_at: number
+  _all: number
+}
+
+
+export type UsuariosAvgAggregateInputType = {
+  rol_id?: true
+}
+
+export type UsuariosSumAggregateInputType = {
+  rol_id?: true
+}
+
+export type UsuariosMinAggregateInputType = {
+  id?: true
+  nombre?: true
+  correo?: true
+  password_hash?: true
+  rol_id?: true
+  activo?: true
+  created_at?: true
+  updated_at?: true
+}
+
+export type UsuariosMaxAggregateInputType = {
+  id?: true
+  nombre?: true
+  correo?: true
+  password_hash?: true
+  rol_id?: true
+  activo?: true
+  created_at?: true
+  updated_at?: true
+}
+
+export type UsuariosCountAggregateInputType = {
+  id?: true
+  nombre?: true
+  correo?: true
+  password_hash?: true
+  rol_id?: true
+  activo?: true
+  created_at?: true
+  updated_at?: true
+  _all?: true
+}
+
+export type UsuariosAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Filter which usuarios to aggregate.
+   */
+  where?: Prisma.usuariosWhereInput
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+   * 
+   * Determine the order of usuarios to fetch.
+   */
+  orderBy?: Prisma.usuariosOrderByWithRelationInput | Prisma.usuariosOrderByWithRelationInput[]
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+   * 
+   * Sets the start position
+   */
+  cursor?: Prisma.usuariosWhereUniqueInput
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+   * 
+   * Take `±n` usuarios from the position of the cursor.
+   */
+  take?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+   * 
+   * Skip the first `n` usuarios.
+   */
+  skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Count returned usuarios
+  **/
+  _count?: true | UsuariosCountAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to average
+  **/
+  _avg?: UsuariosAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: UsuariosSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to find the minimum value
+  **/
+  _min?: UsuariosMinAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to find the maximum value
+  **/
+  _max?: UsuariosMaxAggregateInputType
+}
+
+export type GetUsuariosAggregateType<T extends UsuariosAggregateArgs> = {
+      [P in keyof T & keyof AggregateUsuarios]: P extends '_count' | 'count'
+    ? T[P] extends true
+      ? number
+      : Prisma.GetScalarType<T[P], AggregateUsuarios[P]>
+    : Prisma.GetScalarType<T[P], AggregateUsuarios[P]>
+}
+
+
+
+
+export type usuariosGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.usuariosWhereInput
+  orderBy?: Prisma.usuariosOrderByWithAggregationInput | Prisma.usuariosOrderByWithAggregationInput[]
+  by: Prisma.UsuariosScalarFieldEnum[] | Prisma.UsuariosScalarFieldEnum
+  having?: Prisma.usuariosScalarWhereWithAggregatesInput
+  take?: number
+  skip?: number
+  _count?: UsuariosCountAggregateInputType | true
+  _avg?: UsuariosAvgAggregateInputType
+  _sum?: UsuariosSumAggregateInputType
+  _min?: UsuariosMinAggregateInputType
+  _max?: UsuariosMaxAggregateInputType
+}
+
+export type UsuariosGroupByOutputType = {
+  id: string
+  nombre: string
+  correo: string
+  password_hash: string
+  rol_id: number
+  activo: boolean
+  created_at: Date
+  updated_at: Date
+  _count: UsuariosCountAggregateOutputType | null
+  _avg: UsuariosAvgAggregateOutputType | null
+  _sum: UsuariosSumAggregateOutputType | null
+  _min: UsuariosMinAggregateOutputType | null
+  _max: UsuariosMaxAggregateOutputType | null
+}
+
+export type GetUsuariosGroupByPayload<T extends usuariosGroupByArgs> = Prisma.PrismaPromise<
+  Array<
+    Prisma.PickEnumerable<UsuariosGroupByOutputType, T['by']> &
+      {
+        [P in ((keyof T) & (keyof UsuariosGroupByOutputType))]: P extends '_count'
+          ? T[P] extends boolean
+            ? number
+            : Prisma.GetScalarType<T[P], UsuariosGroupByOutputType[P]>
+          : Prisma.GetScalarType<T[P], UsuariosGroupByOutputType[P]>
+      }
+    >
+  >
+
+
+
+export type usuariosWhereInput = {
+  AND?: Prisma.usuariosWhereInput | Prisma.usuariosWhereInput[]
+  OR?: Prisma.usuariosWhereInput[]
+  NOT?: Prisma.usuariosWhereInput | Prisma.usuariosWhereInput[]
+  id?: Prisma.UuidFilter<"usuarios"> | string
+  nombre?: Prisma.StringFilter<"usuarios"> | string
+  correo?: Prisma.StringFilter<"usuarios"> | string
+  password_hash?: Prisma.StringFilter<"usuarios"> | string
+  rol_id?: Prisma.IntFilter<"usuarios"> | number
+  activo?: Prisma.BoolFilter<"usuarios"> | boolean
+  created_at?: Prisma.DateTimeFilter<"usuarios"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"usuarios"> | Date | string
+  carritos?: Prisma.XOR<Prisma.CarritosNullableScalarRelationFilter, Prisma.carritosWhereInput> | null
+  pedidos?: Prisma.PedidosListRelationFilter
+  recetas_recetas_revisado_porTousuarios?: Prisma.RecetasListRelationFilter
+  recetas_recetas_usuario_idTousuarios?: Prisma.RecetasListRelationFilter
+  roles?: Prisma.XOR<Prisma.RolesScalarRelationFilter, Prisma.rolesWhereInput>
+}
+
+export type usuariosOrderByWithRelationInput = {
+  id?: Prisma.SortOrder
+  nombre?: Prisma.SortOrder
+  correo?: Prisma.SortOrder
+  password_hash?: Prisma.SortOrder
+  rol_id?: Prisma.SortOrder
+  activo?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
+  carritos?: Prisma.carritosOrderByWithRelationInput
+  pedidos?: Prisma.pedidosOrderByRelationAggregateInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasOrderByRelationAggregateInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasOrderByRelationAggregateInput
+  roles?: Prisma.rolesOrderByWithRelationInput
+}
+
+export type usuariosWhereUniqueInput = Prisma.AtLeast<{
+  id?: string
+  correo?: string
+  AND?: Prisma.usuariosWhereInput | Prisma.usuariosWhereInput[]
+  OR?: Prisma.usuariosWhereInput[]
+  NOT?: Prisma.usuariosWhereInput | Prisma.usuariosWhereInput[]
+  nombre?: Prisma.StringFilter<"usuarios"> | string
+  password_hash?: Prisma.StringFilter<"usuarios"> | string
+  rol_id?: Prisma.IntFilter<"usuarios"> | number
+  activo?: Prisma.BoolFilter<"usuarios"> | boolean
+  created_at?: Prisma.DateTimeFilter<"usuarios"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"usuarios"> | Date | string
+  carritos?: Prisma.XOR<Prisma.CarritosNullableScalarRelationFilter, Prisma.carritosWhereInput> | null
+  pedidos?: Prisma.PedidosListRelationFilter
+  recetas_recetas_revisado_porTousuarios?: Prisma.RecetasListRelationFilter
+  recetas_recetas_usuario_idTousuarios?: Prisma.RecetasListRelationFilter
+  roles?: Prisma.XOR<Prisma.RolesScalarRelationFilter, Prisma.rolesWhereInput>
+}, "id" | "correo">
+
+export type usuariosOrderByWithAggregationInput = {
+  id?: Prisma.SortOrder
+  nombre?: Prisma.SortOrder
+  correo?: Prisma.SortOrder
+  password_hash?: Prisma.SortOrder
+  rol_id?: Prisma.SortOrder
+  activo?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
+  _count?: Prisma.usuariosCountOrderByAggregateInput
+  _avg?: Prisma.usuariosAvgOrderByAggregateInput
+  _max?: Prisma.usuariosMaxOrderByAggregateInput
+  _min?: Prisma.usuariosMinOrderByAggregateInput
+  _sum?: Prisma.usuariosSumOrderByAggregateInput
+}
+
+export type usuariosScalarWhereWithAggregatesInput = {
+  AND?: Prisma.usuariosScalarWhereWithAggregatesInput | Prisma.usuariosScalarWhereWithAggregatesInput[]
+  OR?: Prisma.usuariosScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.usuariosScalarWhereWithAggregatesInput | Prisma.usuariosScalarWhereWithAggregatesInput[]
+  id?: Prisma.UuidWithAggregatesFilter<"usuarios"> | string
+  nombre?: Prisma.StringWithAggregatesFilter<"usuarios"> | string
+  correo?: Prisma.StringWithAggregatesFilter<"usuarios"> | string
+  password_hash?: Prisma.StringWithAggregatesFilter<"usuarios"> | string
+  rol_id?: Prisma.IntWithAggregatesFilter<"usuarios"> | number
+  activo?: Prisma.BoolWithAggregatesFilter<"usuarios"> | boolean
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"usuarios"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"usuarios"> | Date | string
+}
+
+export type usuariosCreateInput = {
+  id?: string
+  nombre: string
+  correo: string
+  password_hash: string
+  activo?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  carritos?: Prisma.carritosCreateNestedOneWithoutUsuariosInput
+  pedidos?: Prisma.pedidosCreateNestedManyWithoutUsuariosInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasCreateNestedManyWithoutUsuarios_recetas_revisado_porTousuariosInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasCreateNestedManyWithoutUsuarios_recetas_usuario_idTousuariosInput
+  roles: Prisma.rolesCreateNestedOneWithoutUsuariosInput
+}
+
+export type usuariosUncheckedCreateInput = {
+  id?: string
+  nombre: string
+  correo: string
+  password_hash: string
+  rol_id: number
+  activo?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  carritos?: Prisma.carritosUncheckedCreateNestedOneWithoutUsuariosInput
+  pedidos?: Prisma.pedidosUncheckedCreateNestedManyWithoutUsuariosInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasUncheckedCreateNestedManyWithoutUsuarios_recetas_revisado_porTousuariosInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasUncheckedCreateNestedManyWithoutUsuarios_recetas_usuario_idTousuariosInput
+}
+
+export type usuariosUpdateInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  correo?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  carritos?: Prisma.carritosUpdateOneWithoutUsuariosNestedInput
+  pedidos?: Prisma.pedidosUpdateManyWithoutUsuariosNestedInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasUpdateManyWithoutUsuarios_recetas_revisado_porTousuariosNestedInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasUpdateManyWithoutUsuarios_recetas_usuario_idTousuariosNestedInput
+  roles?: Prisma.rolesUpdateOneRequiredWithoutUsuariosNestedInput
+}
+
+export type usuariosUncheckedUpdateInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  correo?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  rol_id?: Prisma.IntFieldUpdateOperationsInput | number
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  carritos?: Prisma.carritosUncheckedUpdateOneWithoutUsuariosNestedInput
+  pedidos?: Prisma.pedidosUncheckedUpdateManyWithoutUsuariosNestedInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasUncheckedUpdateManyWithoutUsuarios_recetas_revisado_porTousuariosNestedInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasUncheckedUpdateManyWithoutUsuarios_recetas_usuario_idTousuariosNestedInput
+}
+
+export type usuariosCreateManyInput = {
+  id?: string
+  nombre: string
+  correo: string
+  password_hash: string
+  rol_id: number
+  activo?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+}
+
+export type usuariosUpdateManyMutationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  correo?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type usuariosUncheckedUpdateManyInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  correo?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  rol_id?: Prisma.IntFieldUpdateOperationsInput | number
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type UsuariosScalarRelationFilter = {
+  is?: Prisma.usuariosWhereInput
+  isNot?: Prisma.usuariosWhereInput
+}
+
+export type UsuariosNullableScalarRelationFilter = {
+  is?: Prisma.usuariosWhereInput | null
+  isNot?: Prisma.usuariosWhereInput | null
+}
+
+export type UsuariosListRelationFilter = {
+  every?: Prisma.usuariosWhereInput
+  some?: Prisma.usuariosWhereInput
+  none?: Prisma.usuariosWhereInput
+}
+
+export type usuariosOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
+}
+
+export type usuariosCountOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  nombre?: Prisma.SortOrder
+  correo?: Prisma.SortOrder
+  password_hash?: Prisma.SortOrder
+  rol_id?: Prisma.SortOrder
+  activo?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
+}
+
+export type usuariosAvgOrderByAggregateInput = {
+  rol_id?: Prisma.SortOrder
+}
+
+export type usuariosMaxOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  nombre?: Prisma.SortOrder
+  correo?: Prisma.SortOrder
+  password_hash?: Prisma.SortOrder
+  rol_id?: Prisma.SortOrder
+  activo?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
+}
+
+export type usuariosMinOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  nombre?: Prisma.SortOrder
+  correo?: Prisma.SortOrder
+  password_hash?: Prisma.SortOrder
+  rol_id?: Prisma.SortOrder
+  activo?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
+}
+
+export type usuariosSumOrderByAggregateInput = {
+  rol_id?: Prisma.SortOrder
+}
+
+export type usuariosCreateNestedOneWithoutCarritosInput = {
+  create?: Prisma.XOR<Prisma.usuariosCreateWithoutCarritosInput, Prisma.usuariosUncheckedCreateWithoutCarritosInput>
+  connectOrCreate?: Prisma.usuariosCreateOrConnectWithoutCarritosInput
+  connect?: Prisma.usuariosWhereUniqueInput
+}
+
+export type usuariosUpdateOneRequiredWithoutCarritosNestedInput = {
+  create?: Prisma.XOR<Prisma.usuariosCreateWithoutCarritosInput, Prisma.usuariosUncheckedCreateWithoutCarritosInput>
+  connectOrCreate?: Prisma.usuariosCreateOrConnectWithoutCarritosInput
+  upsert?: Prisma.usuariosUpsertWithoutCarritosInput
+  connect?: Prisma.usuariosWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usuariosUpdateToOneWithWhereWithoutCarritosInput, Prisma.usuariosUpdateWithoutCarritosInput>, Prisma.usuariosUncheckedUpdateWithoutCarritosInput>
+}
+
+export type usuariosCreateNestedOneWithoutPedidosInput = {
+  create?: Prisma.XOR<Prisma.usuariosCreateWithoutPedidosInput, Prisma.usuariosUncheckedCreateWithoutPedidosInput>
+  connectOrCreate?: Prisma.usuariosCreateOrConnectWithoutPedidosInput
+  connect?: Prisma.usuariosWhereUniqueInput
+}
+
+export type usuariosUpdateOneRequiredWithoutPedidosNestedInput = {
+  create?: Prisma.XOR<Prisma.usuariosCreateWithoutPedidosInput, Prisma.usuariosUncheckedCreateWithoutPedidosInput>
+  connectOrCreate?: Prisma.usuariosCreateOrConnectWithoutPedidosInput
+  upsert?: Prisma.usuariosUpsertWithoutPedidosInput
+  connect?: Prisma.usuariosWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usuariosUpdateToOneWithWhereWithoutPedidosInput, Prisma.usuariosUpdateWithoutPedidosInput>, Prisma.usuariosUncheckedUpdateWithoutPedidosInput>
+}
+
+export type usuariosCreateNestedOneWithoutRecetas_recetas_revisado_porTousuariosInput = {
+  create?: Prisma.XOR<Prisma.usuariosCreateWithoutRecetas_recetas_revisado_porTousuariosInput, Prisma.usuariosUncheckedCreateWithoutRecetas_recetas_revisado_porTousuariosInput>
+  connectOrCreate?: Prisma.usuariosCreateOrConnectWithoutRecetas_recetas_revisado_porTousuariosInput
+  connect?: Prisma.usuariosWhereUniqueInput
+}
+
+export type usuariosCreateNestedOneWithoutRecetas_recetas_usuario_idTousuariosInput = {
+  create?: Prisma.XOR<Prisma.usuariosCreateWithoutRecetas_recetas_usuario_idTousuariosInput, Prisma.usuariosUncheckedCreateWithoutRecetas_recetas_usuario_idTousuariosInput>
+  connectOrCreate?: Prisma.usuariosCreateOrConnectWithoutRecetas_recetas_usuario_idTousuariosInput
+  connect?: Prisma.usuariosWhereUniqueInput
+}
+
+export type usuariosUpdateOneWithoutRecetas_recetas_revisado_porTousuariosNestedInput = {
+  create?: Prisma.XOR<Prisma.usuariosCreateWithoutRecetas_recetas_revisado_porTousuariosInput, Prisma.usuariosUncheckedCreateWithoutRecetas_recetas_revisado_porTousuariosInput>
+  connectOrCreate?: Prisma.usuariosCreateOrConnectWithoutRecetas_recetas_revisado_porTousuariosInput
+  upsert?: Prisma.usuariosUpsertWithoutRecetas_recetas_revisado_porTousuariosInput
+  disconnect?: Prisma.usuariosWhereInput | boolean
+  delete?: Prisma.usuariosWhereInput | boolean
+  connect?: Prisma.usuariosWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usuariosUpdateToOneWithWhereWithoutRecetas_recetas_revisado_porTousuariosInput, Prisma.usuariosUpdateWithoutRecetas_recetas_revisado_porTousuariosInput>, Prisma.usuariosUncheckedUpdateWithoutRecetas_recetas_revisado_porTousuariosInput>
+}
+
+export type usuariosUpdateOneRequiredWithoutRecetas_recetas_usuario_idTousuariosNestedInput = {
+  create?: Prisma.XOR<Prisma.usuariosCreateWithoutRecetas_recetas_usuario_idTousuariosInput, Prisma.usuariosUncheckedCreateWithoutRecetas_recetas_usuario_idTousuariosInput>
+  connectOrCreate?: Prisma.usuariosCreateOrConnectWithoutRecetas_recetas_usuario_idTousuariosInput
+  upsert?: Prisma.usuariosUpsertWithoutRecetas_recetas_usuario_idTousuariosInput
+  connect?: Prisma.usuariosWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usuariosUpdateToOneWithWhereWithoutRecetas_recetas_usuario_idTousuariosInput, Prisma.usuariosUpdateWithoutRecetas_recetas_usuario_idTousuariosInput>, Prisma.usuariosUncheckedUpdateWithoutRecetas_recetas_usuario_idTousuariosInput>
+}
+
+export type usuariosCreateNestedManyWithoutRolesInput = {
+  create?: Prisma.XOR<Prisma.usuariosCreateWithoutRolesInput, Prisma.usuariosUncheckedCreateWithoutRolesInput> | Prisma.usuariosCreateWithoutRolesInput[] | Prisma.usuariosUncheckedCreateWithoutRolesInput[]
+  connectOrCreate?: Prisma.usuariosCreateOrConnectWithoutRolesInput | Prisma.usuariosCreateOrConnectWithoutRolesInput[]
+  createMany?: Prisma.usuariosCreateManyRolesInputEnvelope
+  connect?: Prisma.usuariosWhereUniqueInput | Prisma.usuariosWhereUniqueInput[]
+}
+
+export type usuariosUncheckedCreateNestedManyWithoutRolesInput = {
+  create?: Prisma.XOR<Prisma.usuariosCreateWithoutRolesInput, Prisma.usuariosUncheckedCreateWithoutRolesInput> | Prisma.usuariosCreateWithoutRolesInput[] | Prisma.usuariosUncheckedCreateWithoutRolesInput[]
+  connectOrCreate?: Prisma.usuariosCreateOrConnectWithoutRolesInput | Prisma.usuariosCreateOrConnectWithoutRolesInput[]
+  createMany?: Prisma.usuariosCreateManyRolesInputEnvelope
+  connect?: Prisma.usuariosWhereUniqueInput | Prisma.usuariosWhereUniqueInput[]
+}
+
+export type usuariosUpdateManyWithoutRolesNestedInput = {
+  create?: Prisma.XOR<Prisma.usuariosCreateWithoutRolesInput, Prisma.usuariosUncheckedCreateWithoutRolesInput> | Prisma.usuariosCreateWithoutRolesInput[] | Prisma.usuariosUncheckedCreateWithoutRolesInput[]
+  connectOrCreate?: Prisma.usuariosCreateOrConnectWithoutRolesInput | Prisma.usuariosCreateOrConnectWithoutRolesInput[]
+  upsert?: Prisma.usuariosUpsertWithWhereUniqueWithoutRolesInput | Prisma.usuariosUpsertWithWhereUniqueWithoutRolesInput[]
+  createMany?: Prisma.usuariosCreateManyRolesInputEnvelope
+  set?: Prisma.usuariosWhereUniqueInput | Prisma.usuariosWhereUniqueInput[]
+  disconnect?: Prisma.usuariosWhereUniqueInput | Prisma.usuariosWhereUniqueInput[]
+  delete?: Prisma.usuariosWhereUniqueInput | Prisma.usuariosWhereUniqueInput[]
+  connect?: Prisma.usuariosWhereUniqueInput | Prisma.usuariosWhereUniqueInput[]
+  update?: Prisma.usuariosUpdateWithWhereUniqueWithoutRolesInput | Prisma.usuariosUpdateWithWhereUniqueWithoutRolesInput[]
+  updateMany?: Prisma.usuariosUpdateManyWithWhereWithoutRolesInput | Prisma.usuariosUpdateManyWithWhereWithoutRolesInput[]
+  deleteMany?: Prisma.usuariosScalarWhereInput | Prisma.usuariosScalarWhereInput[]
+}
+
+export type usuariosUncheckedUpdateManyWithoutRolesNestedInput = {
+  create?: Prisma.XOR<Prisma.usuariosCreateWithoutRolesInput, Prisma.usuariosUncheckedCreateWithoutRolesInput> | Prisma.usuariosCreateWithoutRolesInput[] | Prisma.usuariosUncheckedCreateWithoutRolesInput[]
+  connectOrCreate?: Prisma.usuariosCreateOrConnectWithoutRolesInput | Prisma.usuariosCreateOrConnectWithoutRolesInput[]
+  upsert?: Prisma.usuariosUpsertWithWhereUniqueWithoutRolesInput | Prisma.usuariosUpsertWithWhereUniqueWithoutRolesInput[]
+  createMany?: Prisma.usuariosCreateManyRolesInputEnvelope
+  set?: Prisma.usuariosWhereUniqueInput | Prisma.usuariosWhereUniqueInput[]
+  disconnect?: Prisma.usuariosWhereUniqueInput | Prisma.usuariosWhereUniqueInput[]
+  delete?: Prisma.usuariosWhereUniqueInput | Prisma.usuariosWhereUniqueInput[]
+  connect?: Prisma.usuariosWhereUniqueInput | Prisma.usuariosWhereUniqueInput[]
+  update?: Prisma.usuariosUpdateWithWhereUniqueWithoutRolesInput | Prisma.usuariosUpdateWithWhereUniqueWithoutRolesInput[]
+  updateMany?: Prisma.usuariosUpdateManyWithWhereWithoutRolesInput | Prisma.usuariosUpdateManyWithWhereWithoutRolesInput[]
+  deleteMany?: Prisma.usuariosScalarWhereInput | Prisma.usuariosScalarWhereInput[]
+}
+
+export type usuariosCreateWithoutCarritosInput = {
+  id?: string
+  nombre: string
+  correo: string
+  password_hash: string
+  activo?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  pedidos?: Prisma.pedidosCreateNestedManyWithoutUsuariosInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasCreateNestedManyWithoutUsuarios_recetas_revisado_porTousuariosInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasCreateNestedManyWithoutUsuarios_recetas_usuario_idTousuariosInput
+  roles: Prisma.rolesCreateNestedOneWithoutUsuariosInput
+}
+
+export type usuariosUncheckedCreateWithoutCarritosInput = {
+  id?: string
+  nombre: string
+  correo: string
+  password_hash: string
+  rol_id: number
+  activo?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  pedidos?: Prisma.pedidosUncheckedCreateNestedManyWithoutUsuariosInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasUncheckedCreateNestedManyWithoutUsuarios_recetas_revisado_porTousuariosInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasUncheckedCreateNestedManyWithoutUsuarios_recetas_usuario_idTousuariosInput
+}
+
+export type usuariosCreateOrConnectWithoutCarritosInput = {
+  where: Prisma.usuariosWhereUniqueInput
+  create: Prisma.XOR<Prisma.usuariosCreateWithoutCarritosInput, Prisma.usuariosUncheckedCreateWithoutCarritosInput>
+}
+
+export type usuariosUpsertWithoutCarritosInput = {
+  update: Prisma.XOR<Prisma.usuariosUpdateWithoutCarritosInput, Prisma.usuariosUncheckedUpdateWithoutCarritosInput>
+  create: Prisma.XOR<Prisma.usuariosCreateWithoutCarritosInput, Prisma.usuariosUncheckedCreateWithoutCarritosInput>
+  where?: Prisma.usuariosWhereInput
+}
+
+export type usuariosUpdateToOneWithWhereWithoutCarritosInput = {
+  where?: Prisma.usuariosWhereInput
+  data: Prisma.XOR<Prisma.usuariosUpdateWithoutCarritosInput, Prisma.usuariosUncheckedUpdateWithoutCarritosInput>
+}
+
+export type usuariosUpdateWithoutCarritosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  correo?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  pedidos?: Prisma.pedidosUpdateManyWithoutUsuariosNestedInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasUpdateManyWithoutUsuarios_recetas_revisado_porTousuariosNestedInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasUpdateManyWithoutUsuarios_recetas_usuario_idTousuariosNestedInput
+  roles?: Prisma.rolesUpdateOneRequiredWithoutUsuariosNestedInput
+}
+
+export type usuariosUncheckedUpdateWithoutCarritosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  correo?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  rol_id?: Prisma.IntFieldUpdateOperationsInput | number
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  pedidos?: Prisma.pedidosUncheckedUpdateManyWithoutUsuariosNestedInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasUncheckedUpdateManyWithoutUsuarios_recetas_revisado_porTousuariosNestedInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasUncheckedUpdateManyWithoutUsuarios_recetas_usuario_idTousuariosNestedInput
+}
+
+export type usuariosCreateWithoutPedidosInput = {
+  id?: string
+  nombre: string
+  correo: string
+  password_hash: string
+  activo?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  carritos?: Prisma.carritosCreateNestedOneWithoutUsuariosInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasCreateNestedManyWithoutUsuarios_recetas_revisado_porTousuariosInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasCreateNestedManyWithoutUsuarios_recetas_usuario_idTousuariosInput
+  roles: Prisma.rolesCreateNestedOneWithoutUsuariosInput
+}
+
+export type usuariosUncheckedCreateWithoutPedidosInput = {
+  id?: string
+  nombre: string
+  correo: string
+  password_hash: string
+  rol_id: number
+  activo?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  carritos?: Prisma.carritosUncheckedCreateNestedOneWithoutUsuariosInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasUncheckedCreateNestedManyWithoutUsuarios_recetas_revisado_porTousuariosInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasUncheckedCreateNestedManyWithoutUsuarios_recetas_usuario_idTousuariosInput
+}
+
+export type usuariosCreateOrConnectWithoutPedidosInput = {
+  where: Prisma.usuariosWhereUniqueInput
+  create: Prisma.XOR<Prisma.usuariosCreateWithoutPedidosInput, Prisma.usuariosUncheckedCreateWithoutPedidosInput>
+}
+
+export type usuariosUpsertWithoutPedidosInput = {
+  update: Prisma.XOR<Prisma.usuariosUpdateWithoutPedidosInput, Prisma.usuariosUncheckedUpdateWithoutPedidosInput>
+  create: Prisma.XOR<Prisma.usuariosCreateWithoutPedidosInput, Prisma.usuariosUncheckedCreateWithoutPedidosInput>
+  where?: Prisma.usuariosWhereInput
+}
+
+export type usuariosUpdateToOneWithWhereWithoutPedidosInput = {
+  where?: Prisma.usuariosWhereInput
+  data: Prisma.XOR<Prisma.usuariosUpdateWithoutPedidosInput, Prisma.usuariosUncheckedUpdateWithoutPedidosInput>
+}
+
+export type usuariosUpdateWithoutPedidosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  correo?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  carritos?: Prisma.carritosUpdateOneWithoutUsuariosNestedInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasUpdateManyWithoutUsuarios_recetas_revisado_porTousuariosNestedInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasUpdateManyWithoutUsuarios_recetas_usuario_idTousuariosNestedInput
+  roles?: Prisma.rolesUpdateOneRequiredWithoutUsuariosNestedInput
+}
+
+export type usuariosUncheckedUpdateWithoutPedidosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  correo?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  rol_id?: Prisma.IntFieldUpdateOperationsInput | number
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  carritos?: Prisma.carritosUncheckedUpdateOneWithoutUsuariosNestedInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasUncheckedUpdateManyWithoutUsuarios_recetas_revisado_porTousuariosNestedInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasUncheckedUpdateManyWithoutUsuarios_recetas_usuario_idTousuariosNestedInput
+}
+
+export type usuariosCreateWithoutRecetas_recetas_revisado_porTousuariosInput = {
+  id?: string
+  nombre: string
+  correo: string
+  password_hash: string
+  activo?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  carritos?: Prisma.carritosCreateNestedOneWithoutUsuariosInput
+  pedidos?: Prisma.pedidosCreateNestedManyWithoutUsuariosInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasCreateNestedManyWithoutUsuarios_recetas_usuario_idTousuariosInput
+  roles: Prisma.rolesCreateNestedOneWithoutUsuariosInput
+}
+
+export type usuariosUncheckedCreateWithoutRecetas_recetas_revisado_porTousuariosInput = {
+  id?: string
+  nombre: string
+  correo: string
+  password_hash: string
+  rol_id: number
+  activo?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  carritos?: Prisma.carritosUncheckedCreateNestedOneWithoutUsuariosInput
+  pedidos?: Prisma.pedidosUncheckedCreateNestedManyWithoutUsuariosInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasUncheckedCreateNestedManyWithoutUsuarios_recetas_usuario_idTousuariosInput
+}
+
+export type usuariosCreateOrConnectWithoutRecetas_recetas_revisado_porTousuariosInput = {
+  where: Prisma.usuariosWhereUniqueInput
+  create: Prisma.XOR<Prisma.usuariosCreateWithoutRecetas_recetas_revisado_porTousuariosInput, Prisma.usuariosUncheckedCreateWithoutRecetas_recetas_revisado_porTousuariosInput>
+}
+
+export type usuariosCreateWithoutRecetas_recetas_usuario_idTousuariosInput = {
+  id?: string
+  nombre: string
+  correo: string
+  password_hash: string
+  activo?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  carritos?: Prisma.carritosCreateNestedOneWithoutUsuariosInput
+  pedidos?: Prisma.pedidosCreateNestedManyWithoutUsuariosInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasCreateNestedManyWithoutUsuarios_recetas_revisado_porTousuariosInput
+  roles: Prisma.rolesCreateNestedOneWithoutUsuariosInput
+}
+
+export type usuariosUncheckedCreateWithoutRecetas_recetas_usuario_idTousuariosInput = {
+  id?: string
+  nombre: string
+  correo: string
+  password_hash: string
+  rol_id: number
+  activo?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  carritos?: Prisma.carritosUncheckedCreateNestedOneWithoutUsuariosInput
+  pedidos?: Prisma.pedidosUncheckedCreateNestedManyWithoutUsuariosInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasUncheckedCreateNestedManyWithoutUsuarios_recetas_revisado_porTousuariosInput
+}
+
+export type usuariosCreateOrConnectWithoutRecetas_recetas_usuario_idTousuariosInput = {
+  where: Prisma.usuariosWhereUniqueInput
+  create: Prisma.XOR<Prisma.usuariosCreateWithoutRecetas_recetas_usuario_idTousuariosInput, Prisma.usuariosUncheckedCreateWithoutRecetas_recetas_usuario_idTousuariosInput>
+}
+
+export type usuariosUpsertWithoutRecetas_recetas_revisado_porTousuariosInput = {
+  update: Prisma.XOR<Prisma.usuariosUpdateWithoutRecetas_recetas_revisado_porTousuariosInput, Prisma.usuariosUncheckedUpdateWithoutRecetas_recetas_revisado_porTousuariosInput>
+  create: Prisma.XOR<Prisma.usuariosCreateWithoutRecetas_recetas_revisado_porTousuariosInput, Prisma.usuariosUncheckedCreateWithoutRecetas_recetas_revisado_porTousuariosInput>
+  where?: Prisma.usuariosWhereInput
+}
+
+export type usuariosUpdateToOneWithWhereWithoutRecetas_recetas_revisado_porTousuariosInput = {
+  where?: Prisma.usuariosWhereInput
+  data: Prisma.XOR<Prisma.usuariosUpdateWithoutRecetas_recetas_revisado_porTousuariosInput, Prisma.usuariosUncheckedUpdateWithoutRecetas_recetas_revisado_porTousuariosInput>
+}
+
+export type usuariosUpdateWithoutRecetas_recetas_revisado_porTousuariosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  correo?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  carritos?: Prisma.carritosUpdateOneWithoutUsuariosNestedInput
+  pedidos?: Prisma.pedidosUpdateManyWithoutUsuariosNestedInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasUpdateManyWithoutUsuarios_recetas_usuario_idTousuariosNestedInput
+  roles?: Prisma.rolesUpdateOneRequiredWithoutUsuariosNestedInput
+}
+
+export type usuariosUncheckedUpdateWithoutRecetas_recetas_revisado_porTousuariosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  correo?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  rol_id?: Prisma.IntFieldUpdateOperationsInput | number
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  carritos?: Prisma.carritosUncheckedUpdateOneWithoutUsuariosNestedInput
+  pedidos?: Prisma.pedidosUncheckedUpdateManyWithoutUsuariosNestedInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasUncheckedUpdateManyWithoutUsuarios_recetas_usuario_idTousuariosNestedInput
+}
+
+export type usuariosUpsertWithoutRecetas_recetas_usuario_idTousuariosInput = {
+  update: Prisma.XOR<Prisma.usuariosUpdateWithoutRecetas_recetas_usuario_idTousuariosInput, Prisma.usuariosUncheckedUpdateWithoutRecetas_recetas_usuario_idTousuariosInput>
+  create: Prisma.XOR<Prisma.usuariosCreateWithoutRecetas_recetas_usuario_idTousuariosInput, Prisma.usuariosUncheckedCreateWithoutRecetas_recetas_usuario_idTousuariosInput>
+  where?: Prisma.usuariosWhereInput
+}
+
+export type usuariosUpdateToOneWithWhereWithoutRecetas_recetas_usuario_idTousuariosInput = {
+  where?: Prisma.usuariosWhereInput
+  data: Prisma.XOR<Prisma.usuariosUpdateWithoutRecetas_recetas_usuario_idTousuariosInput, Prisma.usuariosUncheckedUpdateWithoutRecetas_recetas_usuario_idTousuariosInput>
+}
+
+export type usuariosUpdateWithoutRecetas_recetas_usuario_idTousuariosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  correo?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  carritos?: Prisma.carritosUpdateOneWithoutUsuariosNestedInput
+  pedidos?: Prisma.pedidosUpdateManyWithoutUsuariosNestedInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasUpdateManyWithoutUsuarios_recetas_revisado_porTousuariosNestedInput
+  roles?: Prisma.rolesUpdateOneRequiredWithoutUsuariosNestedInput
+}
+
+export type usuariosUncheckedUpdateWithoutRecetas_recetas_usuario_idTousuariosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  correo?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  rol_id?: Prisma.IntFieldUpdateOperationsInput | number
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  carritos?: Prisma.carritosUncheckedUpdateOneWithoutUsuariosNestedInput
+  pedidos?: Prisma.pedidosUncheckedUpdateManyWithoutUsuariosNestedInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasUncheckedUpdateManyWithoutUsuarios_recetas_revisado_porTousuariosNestedInput
+}
+
+export type usuariosCreateWithoutRolesInput = {
+  id?: string
+  nombre: string
+  correo: string
+  password_hash: string
+  activo?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  carritos?: Prisma.carritosCreateNestedOneWithoutUsuariosInput
+  pedidos?: Prisma.pedidosCreateNestedManyWithoutUsuariosInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasCreateNestedManyWithoutUsuarios_recetas_revisado_porTousuariosInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasCreateNestedManyWithoutUsuarios_recetas_usuario_idTousuariosInput
+}
+
+export type usuariosUncheckedCreateWithoutRolesInput = {
+  id?: string
+  nombre: string
+  correo: string
+  password_hash: string
+  activo?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  carritos?: Prisma.carritosUncheckedCreateNestedOneWithoutUsuariosInput
+  pedidos?: Prisma.pedidosUncheckedCreateNestedManyWithoutUsuariosInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasUncheckedCreateNestedManyWithoutUsuarios_recetas_revisado_porTousuariosInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasUncheckedCreateNestedManyWithoutUsuarios_recetas_usuario_idTousuariosInput
+}
+
+export type usuariosCreateOrConnectWithoutRolesInput = {
+  where: Prisma.usuariosWhereUniqueInput
+  create: Prisma.XOR<Prisma.usuariosCreateWithoutRolesInput, Prisma.usuariosUncheckedCreateWithoutRolesInput>
+}
+
+export type usuariosCreateManyRolesInputEnvelope = {
+  data: Prisma.usuariosCreateManyRolesInput | Prisma.usuariosCreateManyRolesInput[]
+  skipDuplicates?: boolean
+}
+
+export type usuariosUpsertWithWhereUniqueWithoutRolesInput = {
+  where: Prisma.usuariosWhereUniqueInput
+  update: Prisma.XOR<Prisma.usuariosUpdateWithoutRolesInput, Prisma.usuariosUncheckedUpdateWithoutRolesInput>
+  create: Prisma.XOR<Prisma.usuariosCreateWithoutRolesInput, Prisma.usuariosUncheckedCreateWithoutRolesInput>
+}
+
+export type usuariosUpdateWithWhereUniqueWithoutRolesInput = {
+  where: Prisma.usuariosWhereUniqueInput
+  data: Prisma.XOR<Prisma.usuariosUpdateWithoutRolesInput, Prisma.usuariosUncheckedUpdateWithoutRolesInput>
+}
+
+export type usuariosUpdateManyWithWhereWithoutRolesInput = {
+  where: Prisma.usuariosScalarWhereInput
+  data: Prisma.XOR<Prisma.usuariosUpdateManyMutationInput, Prisma.usuariosUncheckedUpdateManyWithoutRolesInput>
+}
+
+export type usuariosScalarWhereInput = {
+  AND?: Prisma.usuariosScalarWhereInput | Prisma.usuariosScalarWhereInput[]
+  OR?: Prisma.usuariosScalarWhereInput[]
+  NOT?: Prisma.usuariosScalarWhereInput | Prisma.usuariosScalarWhereInput[]
+  id?: Prisma.UuidFilter<"usuarios"> | string
+  nombre?: Prisma.StringFilter<"usuarios"> | string
+  correo?: Prisma.StringFilter<"usuarios"> | string
+  password_hash?: Prisma.StringFilter<"usuarios"> | string
+  rol_id?: Prisma.IntFilter<"usuarios"> | number
+  activo?: Prisma.BoolFilter<"usuarios"> | boolean
+  created_at?: Prisma.DateTimeFilter<"usuarios"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"usuarios"> | Date | string
+}
+
+export type usuariosCreateManyRolesInput = {
+  id?: string
+  nombre: string
+  correo: string
+  password_hash: string
+  activo?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+}
+
+export type usuariosUpdateWithoutRolesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  correo?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  carritos?: Prisma.carritosUpdateOneWithoutUsuariosNestedInput
+  pedidos?: Prisma.pedidosUpdateManyWithoutUsuariosNestedInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasUpdateManyWithoutUsuarios_recetas_revisado_porTousuariosNestedInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasUpdateManyWithoutUsuarios_recetas_usuario_idTousuariosNestedInput
+}
+
+export type usuariosUncheckedUpdateWithoutRolesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  correo?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  carritos?: Prisma.carritosUncheckedUpdateOneWithoutUsuariosNestedInput
+  pedidos?: Prisma.pedidosUncheckedUpdateManyWithoutUsuariosNestedInput
+  recetas_recetas_revisado_porTousuarios?: Prisma.recetasUncheckedUpdateManyWithoutUsuarios_recetas_revisado_porTousuariosNestedInput
+  recetas_recetas_usuario_idTousuarios?: Prisma.recetasUncheckedUpdateManyWithoutUsuarios_recetas_usuario_idTousuariosNestedInput
+}
+
+export type usuariosUncheckedUpdateManyWithoutRolesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  correo?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+
+/**
+ * Count Type UsuariosCountOutputType
+ */
+
+export type UsuariosCountOutputType = {
+  pedidos: number
+  recetas_recetas_revisado_porTousuarios: number
+  recetas_recetas_usuario_idTousuarios: number
+}
+
+export type UsuariosCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  pedidos?: boolean | UsuariosCountOutputTypeCountPedidosArgs
+  recetas_recetas_revisado_porTousuarios?: boolean | UsuariosCountOutputTypeCountRecetas_recetas_revisado_porTousuariosArgs
+  recetas_recetas_usuario_idTousuarios?: boolean | UsuariosCountOutputTypeCountRecetas_recetas_usuario_idTousuariosArgs
+}
+
+/**
+ * UsuariosCountOutputType without action
+ */
+export type UsuariosCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UsuariosCountOutputType
+   */
+  select?: Prisma.UsuariosCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * UsuariosCountOutputType without action
+ */
+export type UsuariosCountOutputTypeCountPedidosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.pedidosWhereInput
+}
+
+/**
+ * UsuariosCountOutputType without action
+ */
+export type UsuariosCountOutputTypeCountRecetas_recetas_revisado_porTousuariosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.recetasWhereInput
+}
+
+/**
+ * UsuariosCountOutputType without action
+ */
+export type UsuariosCountOutputTypeCountRecetas_recetas_usuario_idTousuariosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.recetasWhereInput
+}
+
+
+export type usuariosSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  id?: boolean
+  nombre?: boolean
+  correo?: boolean
+  password_hash?: boolean
+  rol_id?: boolean
+  activo?: boolean
+  created_at?: boolean
+  updated_at?: boolean
+  carritos?: boolean | Prisma.usuarios$carritosArgs<ExtArgs>
+  pedidos?: boolean | Prisma.usuarios$pedidosArgs<ExtArgs>
+  recetas_recetas_revisado_porTousuarios?: boolean | Prisma.usuarios$recetas_recetas_revisado_porTousuariosArgs<ExtArgs>
+  recetas_recetas_usuario_idTousuarios?: boolean | Prisma.usuarios$recetas_recetas_usuario_idTousuariosArgs<ExtArgs>
+  roles?: boolean | Prisma.rolesDefaultArgs<ExtArgs>
+  _count?: boolean | Prisma.UsuariosCountOutputTypeDefaultArgs<ExtArgs>
+}, ExtArgs["result"]["usuarios"]>
+
+export type usuariosSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  id?: boolean
+  nombre?: boolean
+  correo?: boolean
+  password_hash?: boolean
+  rol_id?: boolean
+  activo?: boolean
+  created_at?: boolean
+  updated_at?: boolean
+  roles?: boolean | Prisma.rolesDefaultArgs<ExtArgs>
+}, ExtArgs["result"]["usuarios"]>
+
+export type usuariosSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  id?: boolean
+  nombre?: boolean
+  correo?: boolean
+  password_hash?: boolean
+  rol_id?: boolean
+  activo?: boolean
+  created_at?: boolean
+  updated_at?: boolean
+  roles?: boolean | Prisma.rolesDefaultArgs<ExtArgs>
+}, ExtArgs["result"]["usuarios"]>
+
+export type usuariosSelectScalar = {
+  id?: boolean
+  nombre?: boolean
+  correo?: boolean
+  password_hash?: boolean
+  rol_id?: boolean
+  activo?: boolean
+  created_at?: boolean
+  updated_at?: boolean
+}
+
+export type usuariosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombre" | "correo" | "password_hash" | "rol_id" | "activo" | "created_at" | "updated_at", ExtArgs["result"]["usuarios"]>
+export type usuariosInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  carritos?: boolean | Prisma.usuarios$carritosArgs<ExtArgs>
+  pedidos?: boolean | Prisma.usuarios$pedidosArgs<ExtArgs>
+  recetas_recetas_revisado_porTousuarios?: boolean | Prisma.usuarios$recetas_recetas_revisado_porTousuariosArgs<ExtArgs>
+  recetas_recetas_usuario_idTousuarios?: boolean | Prisma.usuarios$recetas_recetas_usuario_idTousuariosArgs<ExtArgs>
+  roles?: boolean | Prisma.rolesDefaultArgs<ExtArgs>
+  _count?: boolean | Prisma.UsuariosCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type usuariosIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  roles?: boolean | Prisma.rolesDefaultArgs<ExtArgs>
+}
+export type usuariosIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  roles?: boolean | Prisma.rolesDefaultArgs<ExtArgs>
+}
+
+export type $usuariosPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "usuarios"
+  objects: {
+    carritos: Prisma.$carritosPayload<ExtArgs> | null
+    pedidos: Prisma.$pedidosPayload<ExtArgs>[]
+    recetas_recetas_revisado_porTousuarios: Prisma.$recetasPayload<ExtArgs>[]
+    recetas_recetas_usuario_idTousuarios: Prisma.$recetasPayload<ExtArgs>[]
+    roles: Prisma.$rolesPayload<ExtArgs>
+  }
+  scalars: runtime.Types.Extensions.GetPayloadResult<{
+    id: string
+    nombre: string
+    correo: string
+    password_hash: string
+    rol_id: number
+    activo: boolean
+    created_at: Date
+    updated_at: Date
+  }, ExtArgs["result"]["usuarios"]>
+  composites: {}
+}
+
+export type usuariosGetPayload<S extends boolean | null | undefined | usuariosDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$usuariosPayload, S>
+
+export type usuariosCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<usuariosFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: UsuariosCountAggregateInputType | true
+  }
+
+export interface usuariosDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['usuarios'], meta: { name: 'usuarios' } }
+  /**
+   * Find zero or one Usuarios that matches the filter.
+   * @param {usuariosFindUniqueArgs} args - Arguments to find a Usuarios
+   * @example
+   * // Get one Usuarios
+   * const usuarios = await prisma.usuarios.findUnique({
+   *   where: {
+   *     // ... provide filter here
+   *   }
+   * })
+   */
+  findUnique<T extends usuariosFindUniqueArgs>(args: Prisma.SelectSubset<T, usuariosFindUniqueArgs<ExtArgs>>): Prisma.Prisma__usuariosClient<runtime.Types.Result.GetResult<Prisma.$usuariosPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+  /**
+   * Find one Usuarios that matches the filter or throw an error with `error.code='P2025'`
+   * if no matches were found.
+   * @param {usuariosFindUniqueOrThrowArgs} args - Arguments to find a Usuarios
+   * @example
+   * // Get one Usuarios
+   * const usuarios = await prisma.usuarios.findUniqueOrThrow({
+   *   where: {
+   *     // ... provide filter here
+   *   }
+   * })
+   */
+  findUniqueOrThrow<T extends usuariosFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, usuariosFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__usuariosClient<runtime.Types.Result.GetResult<Prisma.$usuariosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+  /**
+   * Find the first Usuarios that matches the filter.
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * @param {usuariosFindFirstArgs} args - Arguments to find a Usuarios
+   * @example
+   * // Get one Usuarios
+   * const usuarios = await prisma.usuarios.findFirst({
+   *   where: {
+   *     // ... provide filter here
+   *   }
+   * })
+   */
+  findFirst<T extends usuariosFindFirstArgs>(args?: Prisma.SelectSubset<T, usuariosFindFirstArgs<ExtArgs>>): Prisma.Prisma__usuariosClient<runtime.Types.Result.GetResult<Prisma.$usuariosPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+  /**
+   * Find the first Usuarios that matches the filter or
+   * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * @param {usuariosFindFirstOrThrowArgs} args - Arguments to find a Usuarios
+   * @example
+   * // Get one Usuarios
+   * const usuarios = await prisma.usuarios.findFirstOrThrow({
+   *   where: {
+   *     // ... provide filter here
+   *   }
+   * })
+   */
+  findFirstOrThrow<T extends usuariosFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, usuariosFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__usuariosClient<runtime.Types.Result.GetResult<Prisma.$usuariosPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+  /**
+   * Find zero or more Usuarios that matches the filter.
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * @param {usuariosFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @example
+   * // Get all Usuarios
+   * const usuarios = await prisma.usuarios.findMany()
+   * 
+   * // Get first 10 Usuarios
+   * const usuarios = await prisma.usuarios.findMany({ take: 10 })
+   * 
+   * // Only select the `id`
+   * const usuariosWithIdOnly = await prisma.usuarios.findMany({ select: { id: true } })
+   * 
+   */
+  findMany<T extends usuariosFindManyArgs>(args?: Prisma.SelectSubset<T, usuariosFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$usuariosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+  /**
+   * Create a Usuarios.
+   * @param {usuariosCreateArgs} args - Arguments to create a Usuarios.
+   * @example
+   * // Create one Usuarios
+   * const Usuarios = await prisma.usuarios.create({
+   *   data: {
+   *     // ... data to create a Usuarios
+   *   }
+   * })
+   * 
+   */
+  create<T extends usuariosCreateArgs>(args: Prisma.SelectSubset<T, usuariosCreateArgs<ExtArgs>>): Prisma.Prisma__usuariosClient<runtime.Types.Result.GetResult<Prisma.$usuariosPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+  /**
+   * Create many Usuarios.
+   * @param {usuariosCreateManyArgs} args - Arguments to create many Usuarios.
+   * @example
+   * // Create many Usuarios
+   * const usuarios = await prisma.usuarios.createMany({
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   *     
+   */
+  createMany<T extends usuariosCreateManyArgs>(args?: Prisma.SelectSubset<T, usuariosCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+
+  /**
+   * Create many Usuarios and returns the data saved in the database.
+   * @param {usuariosCreateManyAndReturnArgs} args - Arguments to create many Usuarios.
+   * @example
+   * // Create many Usuarios
+   * const usuarios = await prisma.usuarios.createManyAndReturn({
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   * 
+   * // Create many Usuarios and only return the `id`
+   * const usuariosWithIdOnly = await prisma.usuarios.createManyAndReturn({
+   *   select: { id: true },
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * 
+   */
+  createManyAndReturn<T extends usuariosCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, usuariosCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$usuariosPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+  /**
+   * Delete a Usuarios.
+   * @param {usuariosDeleteArgs} args - Arguments to delete one Usuarios.
+   * @example
+   * // Delete one Usuarios
+   * const Usuarios = await prisma.usuarios.delete({
+   *   where: {
+   *     // ... filter to delete one Usuarios
+   *   }
+   * })
+   * 
+   */
+  delete<T extends usuariosDeleteArgs>(args: Prisma.SelectSubset<T, usuariosDeleteArgs<ExtArgs>>): Prisma.Prisma__usuariosClient<runtime.Types.Result.GetResult<Prisma.$usuariosPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+  /**
+   * Update one Usuarios.
+   * @param {usuariosUpdateArgs} args - Arguments to update one Usuarios.
+   * @example
+   * // Update one Usuarios
+   * const usuarios = await prisma.usuarios.update({
+   *   where: {
+   *     // ... provide filter here
+   *   },
+   *   data: {
+   *     // ... provide data here
+   *   }
+   * })
+   * 
+   */
+  update<T extends usuariosUpdateArgs>(args: Prisma.SelectSubset<T, usuariosUpdateArgs<ExtArgs>>): Prisma.Prisma__usuariosClient<runtime.Types.Result.GetResult<Prisma.$usuariosPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+  /**
+   * Delete zero or more Usuarios.
+   * @param {usuariosDeleteManyArgs} args - Arguments to filter Usuarios to delete.
+   * @example
+   * // Delete a few Usuarios
+   * const { count } = await prisma.usuarios.deleteMany({
+   *   where: {
+   *     // ... provide filter here
+   *   }
+   * })
+   * 
+   */
+  deleteMany<T extends usuariosDeleteManyArgs>(args?: Prisma.SelectSubset<T, usuariosDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+
+  /**
+   * Update zero or more Usuarios.
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * @param {usuariosUpdateManyArgs} args - Arguments to update one or more rows.
+   * @example
+   * // Update many Usuarios
+   * const usuarios = await prisma.usuarios.updateMany({
+   *   where: {
+   *     // ... provide filter here
+   *   },
+   *   data: {
+   *     // ... provide data here
+   *   }
+   * })
+   * 
+   */
+  updateMany<T extends usuariosUpdateManyArgs>(args: Prisma.SelectSubset<T, usuariosUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+
+  /**
+   * Update zero or more Usuarios and returns the data updated in the database.
+   * @param {usuariosUpdateManyAndReturnArgs} args - Arguments to update many Usuarios.
+   * @example
+   * // Update many Usuarios
+   * const usuarios = await prisma.usuarios.updateManyAndReturn({
+   *   where: {
+   *     // ... provide filter here
+   *   },
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   * 
+   * // Update zero or more Usuarios and only return the `id`
+   * const usuariosWithIdOnly = await prisma.usuarios.updateManyAndReturn({
+   *   select: { id: true },
+   *   where: {
+   *     // ... provide filter here
+   *   },
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * 
+   */
+  updateManyAndReturn<T extends usuariosUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, usuariosUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$usuariosPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+  /**
+   * Create or update one Usuarios.
+   * @param {usuariosUpsertArgs} args - Arguments to update or create a Usuarios.
+   * @example
+   * // Update or create a Usuarios
+   * const usuarios = await prisma.usuarios.upsert({
+   *   create: {
+   *     // ... data to create a Usuarios
+   *   },
+   *   update: {
+   *     // ... in case it already exists, update
+   *   },
+   *   where: {
+   *     // ... the filter for the Usuarios we want to update
+   *   }
+   * })
+   */
+  upsert<T extends usuariosUpsertArgs>(args: Prisma.SelectSubset<T, usuariosUpsertArgs<ExtArgs>>): Prisma.Prisma__usuariosClient<runtime.Types.Result.GetResult<Prisma.$usuariosPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+  /**
+   * Count the number of Usuarios.
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * @param {usuariosCountArgs} args - Arguments to filter Usuarios to count.
+   * @example
+   * // Count the number of Usuarios
+   * const count = await prisma.usuarios.count({
+   *   where: {
+   *     // ... the filter for the Usuarios we want to count
+   *   }
+   * })
+  **/
+  count<T extends usuariosCountArgs>(
+    args?: Prisma.Subset<T, usuariosCountArgs>,
+  ): Prisma.PrismaPromise<
+    T extends runtime.Types.Utils.Record<'select', any>
+      ? T['select'] extends true
+        ? number
+        : Prisma.GetScalarType<T['select'], UsuariosCountAggregateOutputType>
+      : number
+  >
+
+  /**
+   * Allows you to perform aggregations operations on a Usuarios.
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * @param {UsuariosAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+   * @example
+   * // Ordered by age ascending
+   * // Where email contains prisma.io
+   * // Limited to the 10 users
+   * const aggregations = await prisma.user.aggregate({
+   *   _avg: {
+   *     age: true,
+   *   },
+   *   where: {
+   *     email: {
+   *       contains: "prisma.io",
+   *     },
+   *   },
+   *   orderBy: {
+   *     age: "asc",
+   *   },
+   *   take: 10,
+   * })
+  **/
+  aggregate<T extends UsuariosAggregateArgs>(args: Prisma.Subset<T, UsuariosAggregateArgs>): Prisma.PrismaPromise<GetUsuariosAggregateType<T>>
+
+  /**
+   * Group by Usuarios.
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * @param {usuariosGroupByArgs} args - Group by arguments.
+   * @example
+   * // Group by city, order by createdAt, get count
+   * const result = await prisma.user.groupBy({
+   *   by: ['city', 'createdAt'],
+   *   orderBy: {
+   *     createdAt: true
+   *   },
+   *   _count: {
+   *     _all: true
+   *   },
+   * })
+   * 
+  **/
+  groupBy<
+    T extends usuariosGroupByArgs,
+    HasSelectOrTake extends Prisma.Or<
+      Prisma.Extends<'skip', Prisma.Keys<T>>,
+      Prisma.Extends<'take', Prisma.Keys<T>>
+    >,
+    OrderByArg extends Prisma.True extends HasSelectOrTake
+      ? { orderBy: usuariosGroupByArgs['orderBy'] }
+      : { orderBy?: usuariosGroupByArgs['orderBy'] },
+    OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
+    ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
+    ByValid extends Prisma.Has<ByFields, OrderFields>,
+    HavingFields extends Prisma.GetHavingFields<T['having']>,
+    HavingValid extends Prisma.Has<ByFields, HavingFields>,
+    ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False,
+    InputErrors extends ByEmpty extends Prisma.True
+    ? `Error: "by" must not be empty.`
+    : HavingValid extends Prisma.False
+    ? {
+        [P in HavingFields]: P extends ByFields
+          ? never
+          : P extends string
+          ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+          : [
+              Error,
+              'Field ',
+              P,
+              ` in "having" needs to be provided in "by"`,
+            ]
+      }[HavingFields]
+    : 'take' extends Prisma.Keys<T>
+    ? 'orderBy' extends Prisma.Keys<T>
+      ? ByValid extends Prisma.True
+        ? {}
+        : {
+            [P in OrderFields]: P extends ByFields
+              ? never
+              : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+          }[OrderFields]
+      : 'Error: If you provide "take", you also need to provide "orderBy"'
+    : 'skip' extends Prisma.Keys<T>
+    ? 'orderBy' extends Prisma.Keys<T>
+      ? ByValid extends Prisma.True
+        ? {}
+        : {
+            [P in OrderFields]: P extends ByFields
+              ? never
+              : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+          }[OrderFields]
+      : 'Error: If you provide "skip", you also need to provide "orderBy"'
+    : ByValid extends Prisma.True
+    ? {}
+    : {
+        [P in OrderFields]: P extends ByFields
+          ? never
+          : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+      }[OrderFields]
+  >(args: Prisma.SubsetIntersection<T, usuariosGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUsuariosGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+/**
+ * Fields of the usuarios model
+ */
+readonly fields: usuariosFieldRefs;
+}
+
+/**
+ * The delegate class that acts as a "Promise-like" for usuarios.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__usuariosClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  readonly [Symbol.toStringTag]: "PrismaPromise"
+  carritos<T extends Prisma.usuarios$carritosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usuarios$carritosArgs<ExtArgs>>): Prisma.Prisma__carritosClient<runtime.Types.Result.GetResult<Prisma.$carritosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  pedidos<T extends Prisma.usuarios$pedidosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usuarios$pedidosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$pedidosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  recetas_recetas_revisado_porTousuarios<T extends Prisma.usuarios$recetas_recetas_revisado_porTousuariosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usuarios$recetas_recetas_revisado_porTousuariosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$recetasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  recetas_recetas_usuario_idTousuarios<T extends Prisma.usuarios$recetas_recetas_usuario_idTousuariosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usuarios$recetas_recetas_usuario_idTousuariosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$recetasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  roles<T extends Prisma.rolesDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.rolesDefaultArgs<ExtArgs>>): Prisma.Prisma__rolesClient<runtime.Types.Result.GetResult<Prisma.$rolesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  /**
+   * Attaches callbacks for the resolution and/or rejection of the Promise.
+   * @param onfulfilled The callback to execute when the Promise is resolved.
+   * @param onrejected The callback to execute when the Promise is rejected.
+   * @returns A Promise for the completion of which ever callback is executed.
+   */
+  then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>
+  /**
+   * Attaches a callback for only the rejection of the Promise.
+   * @param onrejected The callback to execute when the Promise is rejected.
+   * @returns A Promise for the completion of the callback.
+   */
+  catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>
+  /**
+   * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+   * resolved value cannot be modified from the callback.
+   * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+   * @returns A Promise for the completion of the callback.
+   */
+  finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>
+}
+
+
+
+
+/**
+ * Fields of the usuarios model
+ */
+export interface usuariosFieldRefs {
+  readonly id: Prisma.FieldRef<"usuarios", 'String'>
+  readonly nombre: Prisma.FieldRef<"usuarios", 'String'>
+  readonly correo: Prisma.FieldRef<"usuarios", 'String'>
+  readonly password_hash: Prisma.FieldRef<"usuarios", 'String'>
+  readonly rol_id: Prisma.FieldRef<"usuarios", 'Int'>
+  readonly activo: Prisma.FieldRef<"usuarios", 'Boolean'>
+  readonly created_at: Prisma.FieldRef<"usuarios", 'DateTime'>
+  readonly updated_at: Prisma.FieldRef<"usuarios", 'DateTime'>
+}
+    
+
+// Custom InputTypes
+/**
+ * usuarios findUnique
+ */
+export type usuariosFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the usuarios
+   */
+  select?: Prisma.usuariosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the usuarios
+   */
+  omit?: Prisma.usuariosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosInclude<ExtArgs> | null
+  /**
+   * Filter, which usuarios to fetch.
+   */
+  where: Prisma.usuariosWhereUniqueInput
+}
+
+/**
+ * usuarios findUniqueOrThrow
+ */
+export type usuariosFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the usuarios
+   */
+  select?: Prisma.usuariosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the usuarios
+   */
+  omit?: Prisma.usuariosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosInclude<ExtArgs> | null
+  /**
+   * Filter, which usuarios to fetch.
+   */
+  where: Prisma.usuariosWhereUniqueInput
+}
+
+/**
+ * usuarios findFirst
+ */
+export type usuariosFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the usuarios
+   */
+  select?: Prisma.usuariosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the usuarios
+   */
+  omit?: Prisma.usuariosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosInclude<ExtArgs> | null
+  /**
+   * Filter, which usuarios to fetch.
+   */
+  where?: Prisma.usuariosWhereInput
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+   * 
+   * Determine the order of usuarios to fetch.
+   */
+  orderBy?: Prisma.usuariosOrderByWithRelationInput | Prisma.usuariosOrderByWithRelationInput[]
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+   * 
+   * Sets the position for searching for usuarios.
+   */
+  cursor?: Prisma.usuariosWhereUniqueInput
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+   * 
+   * Take `±n` usuarios from the position of the cursor.
+   */
+  take?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+   * 
+   * Skip the first `n` usuarios.
+   */
+  skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of usuarios.
+   */
+  distinct?: Prisma.UsuariosScalarFieldEnum | Prisma.UsuariosScalarFieldEnum[]
+}
+
+/**
+ * usuarios findFirstOrThrow
+ */
+export type usuariosFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the usuarios
+   */
+  select?: Prisma.usuariosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the usuarios
+   */
+  omit?: Prisma.usuariosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosInclude<ExtArgs> | null
+  /**
+   * Filter, which usuarios to fetch.
+   */
+  where?: Prisma.usuariosWhereInput
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+   * 
+   * Determine the order of usuarios to fetch.
+   */
+  orderBy?: Prisma.usuariosOrderByWithRelationInput | Prisma.usuariosOrderByWithRelationInput[]
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+   * 
+   * Sets the position for searching for usuarios.
+   */
+  cursor?: Prisma.usuariosWhereUniqueInput
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+   * 
+   * Take `±n` usuarios from the position of the cursor.
+   */
+  take?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+   * 
+   * Skip the first `n` usuarios.
+   */
+  skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of usuarios.
+   */
+  distinct?: Prisma.UsuariosScalarFieldEnum | Prisma.UsuariosScalarFieldEnum[]
+}
+
+/**
+ * usuarios findMany
+ */
+export type usuariosFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the usuarios
+   */
+  select?: Prisma.usuariosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the usuarios
+   */
+  omit?: Prisma.usuariosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosInclude<ExtArgs> | null
+  /**
+   * Filter, which usuarios to fetch.
+   */
+  where?: Prisma.usuariosWhereInput
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+   * 
+   * Determine the order of usuarios to fetch.
+   */
+  orderBy?: Prisma.usuariosOrderByWithRelationInput | Prisma.usuariosOrderByWithRelationInput[]
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+   * 
+   * Sets the position for listing usuarios.
+   */
+  cursor?: Prisma.usuariosWhereUniqueInput
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+   * 
+   * Take `±n` usuarios from the position of the cursor.
+   */
+  take?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+   * 
+   * Skip the first `n` usuarios.
+   */
+  skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of usuarios.
+   */
+  distinct?: Prisma.UsuariosScalarFieldEnum | Prisma.UsuariosScalarFieldEnum[]
+}
+
+/**
+ * usuarios create
+ */
+export type usuariosCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the usuarios
+   */
+  select?: Prisma.usuariosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the usuarios
+   */
+  omit?: Prisma.usuariosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosInclude<ExtArgs> | null
+  /**
+   * The data needed to create a usuarios.
+   */
+  data: Prisma.XOR<Prisma.usuariosCreateInput, Prisma.usuariosUncheckedCreateInput>
+}
+
+/**
+ * usuarios createMany
+ */
+export type usuariosCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * The data used to create many usuarios.
+   */
+  data: Prisma.usuariosCreateManyInput | Prisma.usuariosCreateManyInput[]
+  skipDuplicates?: boolean
+}
+
+/**
+ * usuarios createManyAndReturn
+ */
+export type usuariosCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the usuarios
+   */
+  select?: Prisma.usuariosSelectCreateManyAndReturn<ExtArgs> | null
+  /**
+   * Omit specific fields from the usuarios
+   */
+  omit?: Prisma.usuariosOmit<ExtArgs> | null
+  /**
+   * The data used to create many usuarios.
+   */
+  data: Prisma.usuariosCreateManyInput | Prisma.usuariosCreateManyInput[]
+  skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosIncludeCreateManyAndReturn<ExtArgs> | null
+}
+
+/**
+ * usuarios update
+ */
+export type usuariosUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the usuarios
+   */
+  select?: Prisma.usuariosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the usuarios
+   */
+  omit?: Prisma.usuariosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosInclude<ExtArgs> | null
+  /**
+   * The data needed to update a usuarios.
+   */
+  data: Prisma.XOR<Prisma.usuariosUpdateInput, Prisma.usuariosUncheckedUpdateInput>
+  /**
+   * Choose, which usuarios to update.
+   */
+  where: Prisma.usuariosWhereUniqueInput
+}
+
+/**
+ * usuarios updateMany
+ */
+export type usuariosUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * The data used to update usuarios.
+   */
+  data: Prisma.XOR<Prisma.usuariosUpdateManyMutationInput, Prisma.usuariosUncheckedUpdateManyInput>
+  /**
+   * Filter which usuarios to update
+   */
+  where?: Prisma.usuariosWhereInput
+  /**
+   * Limit how many usuarios to update.
+   */
+  limit?: number
+}
+
+/**
+ * usuarios updateManyAndReturn
+ */
+export type usuariosUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the usuarios
+   */
+  select?: Prisma.usuariosSelectUpdateManyAndReturn<ExtArgs> | null
+  /**
+   * Omit specific fields from the usuarios
+   */
+  omit?: Prisma.usuariosOmit<ExtArgs> | null
+  /**
+   * The data used to update usuarios.
+   */
+  data: Prisma.XOR<Prisma.usuariosUpdateManyMutationInput, Prisma.usuariosUncheckedUpdateManyInput>
+  /**
+   * Filter which usuarios to update
+   */
+  where?: Prisma.usuariosWhereInput
+  /**
+   * Limit how many usuarios to update.
+   */
+  limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosIncludeUpdateManyAndReturn<ExtArgs> | null
+}
+
+/**
+ * usuarios upsert
+ */
+export type usuariosUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the usuarios
+   */
+  select?: Prisma.usuariosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the usuarios
+   */
+  omit?: Prisma.usuariosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosInclude<ExtArgs> | null
+  /**
+   * The filter to search for the usuarios to update in case it exists.
+   */
+  where: Prisma.usuariosWhereUniqueInput
+  /**
+   * In case the usuarios found by the `where` argument doesn't exist, create a new usuarios with this data.
+   */
+  create: Prisma.XOR<Prisma.usuariosCreateInput, Prisma.usuariosUncheckedCreateInput>
+  /**
+   * In case the usuarios was found with the provided `where` argument, update it with this data.
+   */
+  update: Prisma.XOR<Prisma.usuariosUpdateInput, Prisma.usuariosUncheckedUpdateInput>
+}
+
+/**
+ * usuarios delete
+ */
+export type usuariosDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the usuarios
+   */
+  select?: Prisma.usuariosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the usuarios
+   */
+  omit?: Prisma.usuariosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosInclude<ExtArgs> | null
+  /**
+   * Filter which usuarios to delete.
+   */
+  where: Prisma.usuariosWhereUniqueInput
+}
+
+/**
+ * usuarios deleteMany
+ */
+export type usuariosDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Filter which usuarios to delete
+   */
+  where?: Prisma.usuariosWhereInput
+  /**
+   * Limit how many usuarios to delete.
+   */
+  limit?: number
+}
+
+/**
+ * usuarios.carritos
+ */
+export type usuarios$carritosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the carritos
+   */
+  select?: Prisma.carritosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the carritos
+   */
+  omit?: Prisma.carritosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.carritosInclude<ExtArgs> | null
+  where?: Prisma.carritosWhereInput
+}
+
+/**
+ * usuarios.pedidos
+ */
+export type usuarios$pedidosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the pedidos
+   */
+  select?: Prisma.pedidosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the pedidos
+   */
+  omit?: Prisma.pedidosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pedidosInclude<ExtArgs> | null
+  where?: Prisma.pedidosWhereInput
+  orderBy?: Prisma.pedidosOrderByWithRelationInput | Prisma.pedidosOrderByWithRelationInput[]
+  cursor?: Prisma.pedidosWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PedidosScalarFieldEnum | Prisma.PedidosScalarFieldEnum[]
+}
+
+/**
+ * usuarios.recetas_recetas_revisado_porTousuarios
+ */
+export type usuarios$recetas_recetas_revisado_porTousuariosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the recetas
+   */
+  select?: Prisma.recetasSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the recetas
+   */
+  omit?: Prisma.recetasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.recetasInclude<ExtArgs> | null
+  where?: Prisma.recetasWhereInput
+  orderBy?: Prisma.recetasOrderByWithRelationInput | Prisma.recetasOrderByWithRelationInput[]
+  cursor?: Prisma.recetasWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.RecetasScalarFieldEnum | Prisma.RecetasScalarFieldEnum[]
+}
+
+/**
+ * usuarios.recetas_recetas_usuario_idTousuarios
+ */
+export type usuarios$recetas_recetas_usuario_idTousuariosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the recetas
+   */
+  select?: Prisma.recetasSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the recetas
+   */
+  omit?: Prisma.recetasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.recetasInclude<ExtArgs> | null
+  where?: Prisma.recetasWhereInput
+  orderBy?: Prisma.recetasOrderByWithRelationInput | Prisma.recetasOrderByWithRelationInput[]
+  cursor?: Prisma.recetasWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.RecetasScalarFieldEnum | Prisma.RecetasScalarFieldEnum[]
+}
+
+/**
+ * usuarios without action
+ */
+export type usuariosDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the usuarios
+   */
+  select?: Prisma.usuariosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the usuarios
+   */
+  omit?: Prisma.usuariosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosInclude<ExtArgs> | null
+}

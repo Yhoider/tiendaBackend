@@ -1,0 +1,1792 @@
+import type * as runtime from "@prisma/client/runtime/client"
+import type * as $Enums from "../enums.js"
+import type * as Prisma from "../internal/prismaNamespace.js"
+
+/**
+ * Model pedido_items
+ * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+ */
+export type pedido_itemsModel = runtime.Types.Result.DefaultSelection<Prisma.$pedido_itemsPayload>
+
+export type AggregatePedido_items = {
+  _count: Pedido_itemsCountAggregateOutputType | null
+  _avg: Pedido_itemsAvgAggregateOutputType | null
+  _sum: Pedido_itemsSumAggregateOutputType | null
+  _min: Pedido_itemsMinAggregateOutputType | null
+  _max: Pedido_itemsMaxAggregateOutputType | null
+}
+
+export type Pedido_itemsAvgAggregateOutputType = {
+  precio_unitario: runtime.Decimal | null
+  cantidad: number | null
+  subtotal: runtime.Decimal | null
+}
+
+export type Pedido_itemsSumAggregateOutputType = {
+  precio_unitario: runtime.Decimal | null
+  cantidad: number | null
+  subtotal: runtime.Decimal | null
+}
+
+export type Pedido_itemsMinAggregateOutputType = {
+  id: string | null
+  pedido_id: string | null
+  medicamento_id: string | null
+  receta_detalle_id: string | null
+  nombre_producto: string | null
+  precio_unitario: runtime.Decimal | null
+  cantidad: number | null
+  subtotal: runtime.Decimal | null
+}
+
+export type Pedido_itemsMaxAggregateOutputType = {
+  id: string | null
+  pedido_id: string | null
+  medicamento_id: string | null
+  receta_detalle_id: string | null
+  nombre_producto: string | null
+  precio_unitario: runtime.Decimal | null
+  cantidad: number | null
+  subtotal: runtime.Decimal | null
+}
+
+export type Pedido_itemsCountAggregateOutputType = {
+  id: number
+  pedido_id: number
+  medicamento_id: number
+  receta_detalle_id: number
+  nombre_producto: number
+  precio_unitario: number
+  cantidad: number
+  subtotal: number
+  _all: number
+}
+
+
+export type Pedido_itemsAvgAggregateInputType = {
+  precio_unitario?: true
+  cantidad?: true
+  subtotal?: true
+}
+
+export type Pedido_itemsSumAggregateInputType = {
+  precio_unitario?: true
+  cantidad?: true
+  subtotal?: true
+}
+
+export type Pedido_itemsMinAggregateInputType = {
+  id?: true
+  pedido_id?: true
+  medicamento_id?: true
+  receta_detalle_id?: true
+  nombre_producto?: true
+  precio_unitario?: true
+  cantidad?: true
+  subtotal?: true
+}
+
+export type Pedido_itemsMaxAggregateInputType = {
+  id?: true
+  pedido_id?: true
+  medicamento_id?: true
+  receta_detalle_id?: true
+  nombre_producto?: true
+  precio_unitario?: true
+  cantidad?: true
+  subtotal?: true
+}
+
+export type Pedido_itemsCountAggregateInputType = {
+  id?: true
+  pedido_id?: true
+  medicamento_id?: true
+  receta_detalle_id?: true
+  nombre_producto?: true
+  precio_unitario?: true
+  cantidad?: true
+  subtotal?: true
+  _all?: true
+}
+
+export type Pedido_itemsAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Filter which pedido_items to aggregate.
+   */
+  where?: Prisma.pedido_itemsWhereInput
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+   * 
+   * Determine the order of pedido_items to fetch.
+   */
+  orderBy?: Prisma.pedido_itemsOrderByWithRelationInput | Prisma.pedido_itemsOrderByWithRelationInput[]
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+   * 
+   * Sets the start position
+   */
+  cursor?: Prisma.pedido_itemsWhereUniqueInput
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+   * 
+   * Take `±n` pedido_items from the position of the cursor.
+   */
+  take?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+   * 
+   * Skip the first `n` pedido_items.
+   */
+  skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Count returned pedido_items
+  **/
+  _count?: true | Pedido_itemsCountAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to average
+  **/
+  _avg?: Pedido_itemsAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: Pedido_itemsSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to find the minimum value
+  **/
+  _min?: Pedido_itemsMinAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to find the maximum value
+  **/
+  _max?: Pedido_itemsMaxAggregateInputType
+}
+
+export type GetPedido_itemsAggregateType<T extends Pedido_itemsAggregateArgs> = {
+      [P in keyof T & keyof AggregatePedido_items]: P extends '_count' | 'count'
+    ? T[P] extends true
+      ? number
+      : Prisma.GetScalarType<T[P], AggregatePedido_items[P]>
+    : Prisma.GetScalarType<T[P], AggregatePedido_items[P]>
+}
+
+
+
+
+export type pedido_itemsGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.pedido_itemsWhereInput
+  orderBy?: Prisma.pedido_itemsOrderByWithAggregationInput | Prisma.pedido_itemsOrderByWithAggregationInput[]
+  by: Prisma.Pedido_itemsScalarFieldEnum[] | Prisma.Pedido_itemsScalarFieldEnum
+  having?: Prisma.pedido_itemsScalarWhereWithAggregatesInput
+  take?: number
+  skip?: number
+  _count?: Pedido_itemsCountAggregateInputType | true
+  _avg?: Pedido_itemsAvgAggregateInputType
+  _sum?: Pedido_itemsSumAggregateInputType
+  _min?: Pedido_itemsMinAggregateInputType
+  _max?: Pedido_itemsMaxAggregateInputType
+}
+
+export type Pedido_itemsGroupByOutputType = {
+  id: string
+  pedido_id: string
+  medicamento_id: string
+  receta_detalle_id: string | null
+  nombre_producto: string
+  precio_unitario: runtime.Decimal
+  cantidad: number
+  subtotal: runtime.Decimal
+  _count: Pedido_itemsCountAggregateOutputType | null
+  _avg: Pedido_itemsAvgAggregateOutputType | null
+  _sum: Pedido_itemsSumAggregateOutputType | null
+  _min: Pedido_itemsMinAggregateOutputType | null
+  _max: Pedido_itemsMaxAggregateOutputType | null
+}
+
+export type GetPedido_itemsGroupByPayload<T extends pedido_itemsGroupByArgs> = Prisma.PrismaPromise<
+  Array<
+    Prisma.PickEnumerable<Pedido_itemsGroupByOutputType, T['by']> &
+      {
+        [P in ((keyof T) & (keyof Pedido_itemsGroupByOutputType))]: P extends '_count'
+          ? T[P] extends boolean
+            ? number
+            : Prisma.GetScalarType<T[P], Pedido_itemsGroupByOutputType[P]>
+          : Prisma.GetScalarType<T[P], Pedido_itemsGroupByOutputType[P]>
+      }
+    >
+  >
+
+
+
+export type pedido_itemsWhereInput = {
+  AND?: Prisma.pedido_itemsWhereInput | Prisma.pedido_itemsWhereInput[]
+  OR?: Prisma.pedido_itemsWhereInput[]
+  NOT?: Prisma.pedido_itemsWhereInput | Prisma.pedido_itemsWhereInput[]
+  id?: Prisma.UuidFilter<"pedido_items"> | string
+  pedido_id?: Prisma.UuidFilter<"pedido_items"> | string
+  medicamento_id?: Prisma.UuidFilter<"pedido_items"> | string
+  receta_detalle_id?: Prisma.UuidNullableFilter<"pedido_items"> | string | null
+  nombre_producto?: Prisma.StringFilter<"pedido_items"> | string
+  precio_unitario?: Prisma.DecimalFilter<"pedido_items"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntFilter<"pedido_items"> | number
+  subtotal?: Prisma.DecimalFilter<"pedido_items"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  medicamentos?: Prisma.XOR<Prisma.MedicamentosScalarRelationFilter, Prisma.medicamentosWhereInput>
+  pedidos?: Prisma.XOR<Prisma.PedidosScalarRelationFilter, Prisma.pedidosWhereInput>
+  receta_detalles?: Prisma.XOR<Prisma.Receta_detallesNullableScalarRelationFilter, Prisma.receta_detallesWhereInput> | null
+}
+
+export type pedido_itemsOrderByWithRelationInput = {
+  id?: Prisma.SortOrder
+  pedido_id?: Prisma.SortOrder
+  medicamento_id?: Prisma.SortOrder
+  receta_detalle_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  nombre_producto?: Prisma.SortOrder
+  precio_unitario?: Prisma.SortOrder
+  cantidad?: Prisma.SortOrder
+  subtotal?: Prisma.SortOrder
+  medicamentos?: Prisma.medicamentosOrderByWithRelationInput
+  pedidos?: Prisma.pedidosOrderByWithRelationInput
+  receta_detalles?: Prisma.receta_detallesOrderByWithRelationInput
+}
+
+export type pedido_itemsWhereUniqueInput = Prisma.AtLeast<{
+  id?: string
+  AND?: Prisma.pedido_itemsWhereInput | Prisma.pedido_itemsWhereInput[]
+  OR?: Prisma.pedido_itemsWhereInput[]
+  NOT?: Prisma.pedido_itemsWhereInput | Prisma.pedido_itemsWhereInput[]
+  pedido_id?: Prisma.UuidFilter<"pedido_items"> | string
+  medicamento_id?: Prisma.UuidFilter<"pedido_items"> | string
+  receta_detalle_id?: Prisma.UuidNullableFilter<"pedido_items"> | string | null
+  nombre_producto?: Prisma.StringFilter<"pedido_items"> | string
+  precio_unitario?: Prisma.DecimalFilter<"pedido_items"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntFilter<"pedido_items"> | number
+  subtotal?: Prisma.DecimalFilter<"pedido_items"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  medicamentos?: Prisma.XOR<Prisma.MedicamentosScalarRelationFilter, Prisma.medicamentosWhereInput>
+  pedidos?: Prisma.XOR<Prisma.PedidosScalarRelationFilter, Prisma.pedidosWhereInput>
+  receta_detalles?: Prisma.XOR<Prisma.Receta_detallesNullableScalarRelationFilter, Prisma.receta_detallesWhereInput> | null
+}, "id">
+
+export type pedido_itemsOrderByWithAggregationInput = {
+  id?: Prisma.SortOrder
+  pedido_id?: Prisma.SortOrder
+  medicamento_id?: Prisma.SortOrder
+  receta_detalle_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  nombre_producto?: Prisma.SortOrder
+  precio_unitario?: Prisma.SortOrder
+  cantidad?: Prisma.SortOrder
+  subtotal?: Prisma.SortOrder
+  _count?: Prisma.pedido_itemsCountOrderByAggregateInput
+  _avg?: Prisma.pedido_itemsAvgOrderByAggregateInput
+  _max?: Prisma.pedido_itemsMaxOrderByAggregateInput
+  _min?: Prisma.pedido_itemsMinOrderByAggregateInput
+  _sum?: Prisma.pedido_itemsSumOrderByAggregateInput
+}
+
+export type pedido_itemsScalarWhereWithAggregatesInput = {
+  AND?: Prisma.pedido_itemsScalarWhereWithAggregatesInput | Prisma.pedido_itemsScalarWhereWithAggregatesInput[]
+  OR?: Prisma.pedido_itemsScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.pedido_itemsScalarWhereWithAggregatesInput | Prisma.pedido_itemsScalarWhereWithAggregatesInput[]
+  id?: Prisma.UuidWithAggregatesFilter<"pedido_items"> | string
+  pedido_id?: Prisma.UuidWithAggregatesFilter<"pedido_items"> | string
+  medicamento_id?: Prisma.UuidWithAggregatesFilter<"pedido_items"> | string
+  receta_detalle_id?: Prisma.UuidNullableWithAggregatesFilter<"pedido_items"> | string | null
+  nombre_producto?: Prisma.StringWithAggregatesFilter<"pedido_items"> | string
+  precio_unitario?: Prisma.DecimalWithAggregatesFilter<"pedido_items"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntWithAggregatesFilter<"pedido_items"> | number
+  subtotal?: Prisma.DecimalWithAggregatesFilter<"pedido_items"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsCreateInput = {
+  id?: string
+  nombre_producto: string
+  precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad: number
+  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  medicamentos: Prisma.medicamentosCreateNestedOneWithoutPedido_itemsInput
+  pedidos: Prisma.pedidosCreateNestedOneWithoutPedido_itemsInput
+  receta_detalles?: Prisma.receta_detallesCreateNestedOneWithoutPedido_itemsInput
+}
+
+export type pedido_itemsUncheckedCreateInput = {
+  id?: string
+  pedido_id: string
+  medicamento_id: string
+  receta_detalle_id?: string | null
+  nombre_producto: string
+  precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad: number
+  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsUpdateInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre_producto?: Prisma.StringFieldUpdateOperationsInput | string
+  precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntFieldUpdateOperationsInput | number
+  subtotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  medicamentos?: Prisma.medicamentosUpdateOneRequiredWithoutPedido_itemsNestedInput
+  pedidos?: Prisma.pedidosUpdateOneRequiredWithoutPedido_itemsNestedInput
+  receta_detalles?: Prisma.receta_detallesUpdateOneWithoutPedido_itemsNestedInput
+}
+
+export type pedido_itemsUncheckedUpdateInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  pedido_id?: Prisma.StringFieldUpdateOperationsInput | string
+  medicamento_id?: Prisma.StringFieldUpdateOperationsInput | string
+  receta_detalle_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nombre_producto?: Prisma.StringFieldUpdateOperationsInput | string
+  precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntFieldUpdateOperationsInput | number
+  subtotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsCreateManyInput = {
+  id?: string
+  pedido_id: string
+  medicamento_id: string
+  receta_detalle_id?: string | null
+  nombre_producto: string
+  precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad: number
+  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsUpdateManyMutationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre_producto?: Prisma.StringFieldUpdateOperationsInput | string
+  precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntFieldUpdateOperationsInput | number
+  subtotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsUncheckedUpdateManyInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  pedido_id?: Prisma.StringFieldUpdateOperationsInput | string
+  medicamento_id?: Prisma.StringFieldUpdateOperationsInput | string
+  receta_detalle_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nombre_producto?: Prisma.StringFieldUpdateOperationsInput | string
+  precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntFieldUpdateOperationsInput | number
+  subtotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type Pedido_itemsListRelationFilter = {
+  every?: Prisma.pedido_itemsWhereInput
+  some?: Prisma.pedido_itemsWhereInput
+  none?: Prisma.pedido_itemsWhereInput
+}
+
+export type pedido_itemsOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
+}
+
+export type pedido_itemsCountOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  pedido_id?: Prisma.SortOrder
+  medicamento_id?: Prisma.SortOrder
+  receta_detalle_id?: Prisma.SortOrder
+  nombre_producto?: Prisma.SortOrder
+  precio_unitario?: Prisma.SortOrder
+  cantidad?: Prisma.SortOrder
+  subtotal?: Prisma.SortOrder
+}
+
+export type pedido_itemsAvgOrderByAggregateInput = {
+  precio_unitario?: Prisma.SortOrder
+  cantidad?: Prisma.SortOrder
+  subtotal?: Prisma.SortOrder
+}
+
+export type pedido_itemsMaxOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  pedido_id?: Prisma.SortOrder
+  medicamento_id?: Prisma.SortOrder
+  receta_detalle_id?: Prisma.SortOrder
+  nombre_producto?: Prisma.SortOrder
+  precio_unitario?: Prisma.SortOrder
+  cantidad?: Prisma.SortOrder
+  subtotal?: Prisma.SortOrder
+}
+
+export type pedido_itemsMinOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  pedido_id?: Prisma.SortOrder
+  medicamento_id?: Prisma.SortOrder
+  receta_detalle_id?: Prisma.SortOrder
+  nombre_producto?: Prisma.SortOrder
+  precio_unitario?: Prisma.SortOrder
+  cantidad?: Prisma.SortOrder
+  subtotal?: Prisma.SortOrder
+}
+
+export type pedido_itemsSumOrderByAggregateInput = {
+  precio_unitario?: Prisma.SortOrder
+  cantidad?: Prisma.SortOrder
+  subtotal?: Prisma.SortOrder
+}
+
+export type pedido_itemsCreateNestedManyWithoutMedicamentosInput = {
+  create?: Prisma.XOR<Prisma.pedido_itemsCreateWithoutMedicamentosInput, Prisma.pedido_itemsUncheckedCreateWithoutMedicamentosInput> | Prisma.pedido_itemsCreateWithoutMedicamentosInput[] | Prisma.pedido_itemsUncheckedCreateWithoutMedicamentosInput[]
+  connectOrCreate?: Prisma.pedido_itemsCreateOrConnectWithoutMedicamentosInput | Prisma.pedido_itemsCreateOrConnectWithoutMedicamentosInput[]
+  createMany?: Prisma.pedido_itemsCreateManyMedicamentosInputEnvelope
+  connect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+}
+
+export type pedido_itemsUncheckedCreateNestedManyWithoutMedicamentosInput = {
+  create?: Prisma.XOR<Prisma.pedido_itemsCreateWithoutMedicamentosInput, Prisma.pedido_itemsUncheckedCreateWithoutMedicamentosInput> | Prisma.pedido_itemsCreateWithoutMedicamentosInput[] | Prisma.pedido_itemsUncheckedCreateWithoutMedicamentosInput[]
+  connectOrCreate?: Prisma.pedido_itemsCreateOrConnectWithoutMedicamentosInput | Prisma.pedido_itemsCreateOrConnectWithoutMedicamentosInput[]
+  createMany?: Prisma.pedido_itemsCreateManyMedicamentosInputEnvelope
+  connect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+}
+
+export type pedido_itemsUpdateManyWithoutMedicamentosNestedInput = {
+  create?: Prisma.XOR<Prisma.pedido_itemsCreateWithoutMedicamentosInput, Prisma.pedido_itemsUncheckedCreateWithoutMedicamentosInput> | Prisma.pedido_itemsCreateWithoutMedicamentosInput[] | Prisma.pedido_itemsUncheckedCreateWithoutMedicamentosInput[]
+  connectOrCreate?: Prisma.pedido_itemsCreateOrConnectWithoutMedicamentosInput | Prisma.pedido_itemsCreateOrConnectWithoutMedicamentosInput[]
+  upsert?: Prisma.pedido_itemsUpsertWithWhereUniqueWithoutMedicamentosInput | Prisma.pedido_itemsUpsertWithWhereUniqueWithoutMedicamentosInput[]
+  createMany?: Prisma.pedido_itemsCreateManyMedicamentosInputEnvelope
+  set?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  disconnect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  delete?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  connect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  update?: Prisma.pedido_itemsUpdateWithWhereUniqueWithoutMedicamentosInput | Prisma.pedido_itemsUpdateWithWhereUniqueWithoutMedicamentosInput[]
+  updateMany?: Prisma.pedido_itemsUpdateManyWithWhereWithoutMedicamentosInput | Prisma.pedido_itemsUpdateManyWithWhereWithoutMedicamentosInput[]
+  deleteMany?: Prisma.pedido_itemsScalarWhereInput | Prisma.pedido_itemsScalarWhereInput[]
+}
+
+export type pedido_itemsUncheckedUpdateManyWithoutMedicamentosNestedInput = {
+  create?: Prisma.XOR<Prisma.pedido_itemsCreateWithoutMedicamentosInput, Prisma.pedido_itemsUncheckedCreateWithoutMedicamentosInput> | Prisma.pedido_itemsCreateWithoutMedicamentosInput[] | Prisma.pedido_itemsUncheckedCreateWithoutMedicamentosInput[]
+  connectOrCreate?: Prisma.pedido_itemsCreateOrConnectWithoutMedicamentosInput | Prisma.pedido_itemsCreateOrConnectWithoutMedicamentosInput[]
+  upsert?: Prisma.pedido_itemsUpsertWithWhereUniqueWithoutMedicamentosInput | Prisma.pedido_itemsUpsertWithWhereUniqueWithoutMedicamentosInput[]
+  createMany?: Prisma.pedido_itemsCreateManyMedicamentosInputEnvelope
+  set?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  disconnect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  delete?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  connect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  update?: Prisma.pedido_itemsUpdateWithWhereUniqueWithoutMedicamentosInput | Prisma.pedido_itemsUpdateWithWhereUniqueWithoutMedicamentosInput[]
+  updateMany?: Prisma.pedido_itemsUpdateManyWithWhereWithoutMedicamentosInput | Prisma.pedido_itemsUpdateManyWithWhereWithoutMedicamentosInput[]
+  deleteMany?: Prisma.pedido_itemsScalarWhereInput | Prisma.pedido_itemsScalarWhereInput[]
+}
+
+export type pedido_itemsCreateNestedManyWithoutPedidosInput = {
+  create?: Prisma.XOR<Prisma.pedido_itemsCreateWithoutPedidosInput, Prisma.pedido_itemsUncheckedCreateWithoutPedidosInput> | Prisma.pedido_itemsCreateWithoutPedidosInput[] | Prisma.pedido_itemsUncheckedCreateWithoutPedidosInput[]
+  connectOrCreate?: Prisma.pedido_itemsCreateOrConnectWithoutPedidosInput | Prisma.pedido_itemsCreateOrConnectWithoutPedidosInput[]
+  createMany?: Prisma.pedido_itemsCreateManyPedidosInputEnvelope
+  connect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+}
+
+export type pedido_itemsUncheckedCreateNestedManyWithoutPedidosInput = {
+  create?: Prisma.XOR<Prisma.pedido_itemsCreateWithoutPedidosInput, Prisma.pedido_itemsUncheckedCreateWithoutPedidosInput> | Prisma.pedido_itemsCreateWithoutPedidosInput[] | Prisma.pedido_itemsUncheckedCreateWithoutPedidosInput[]
+  connectOrCreate?: Prisma.pedido_itemsCreateOrConnectWithoutPedidosInput | Prisma.pedido_itemsCreateOrConnectWithoutPedidosInput[]
+  createMany?: Prisma.pedido_itemsCreateManyPedidosInputEnvelope
+  connect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+}
+
+export type pedido_itemsUpdateManyWithoutPedidosNestedInput = {
+  create?: Prisma.XOR<Prisma.pedido_itemsCreateWithoutPedidosInput, Prisma.pedido_itemsUncheckedCreateWithoutPedidosInput> | Prisma.pedido_itemsCreateWithoutPedidosInput[] | Prisma.pedido_itemsUncheckedCreateWithoutPedidosInput[]
+  connectOrCreate?: Prisma.pedido_itemsCreateOrConnectWithoutPedidosInput | Prisma.pedido_itemsCreateOrConnectWithoutPedidosInput[]
+  upsert?: Prisma.pedido_itemsUpsertWithWhereUniqueWithoutPedidosInput | Prisma.pedido_itemsUpsertWithWhereUniqueWithoutPedidosInput[]
+  createMany?: Prisma.pedido_itemsCreateManyPedidosInputEnvelope
+  set?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  disconnect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  delete?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  connect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  update?: Prisma.pedido_itemsUpdateWithWhereUniqueWithoutPedidosInput | Prisma.pedido_itemsUpdateWithWhereUniqueWithoutPedidosInput[]
+  updateMany?: Prisma.pedido_itemsUpdateManyWithWhereWithoutPedidosInput | Prisma.pedido_itemsUpdateManyWithWhereWithoutPedidosInput[]
+  deleteMany?: Prisma.pedido_itemsScalarWhereInput | Prisma.pedido_itemsScalarWhereInput[]
+}
+
+export type pedido_itemsUncheckedUpdateManyWithoutPedidosNestedInput = {
+  create?: Prisma.XOR<Prisma.pedido_itemsCreateWithoutPedidosInput, Prisma.pedido_itemsUncheckedCreateWithoutPedidosInput> | Prisma.pedido_itemsCreateWithoutPedidosInput[] | Prisma.pedido_itemsUncheckedCreateWithoutPedidosInput[]
+  connectOrCreate?: Prisma.pedido_itemsCreateOrConnectWithoutPedidosInput | Prisma.pedido_itemsCreateOrConnectWithoutPedidosInput[]
+  upsert?: Prisma.pedido_itemsUpsertWithWhereUniqueWithoutPedidosInput | Prisma.pedido_itemsUpsertWithWhereUniqueWithoutPedidosInput[]
+  createMany?: Prisma.pedido_itemsCreateManyPedidosInputEnvelope
+  set?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  disconnect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  delete?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  connect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  update?: Prisma.pedido_itemsUpdateWithWhereUniqueWithoutPedidosInput | Prisma.pedido_itemsUpdateWithWhereUniqueWithoutPedidosInput[]
+  updateMany?: Prisma.pedido_itemsUpdateManyWithWhereWithoutPedidosInput | Prisma.pedido_itemsUpdateManyWithWhereWithoutPedidosInput[]
+  deleteMany?: Prisma.pedido_itemsScalarWhereInput | Prisma.pedido_itemsScalarWhereInput[]
+}
+
+export type pedido_itemsCreateNestedManyWithoutReceta_detallesInput = {
+  create?: Prisma.XOR<Prisma.pedido_itemsCreateWithoutReceta_detallesInput, Prisma.pedido_itemsUncheckedCreateWithoutReceta_detallesInput> | Prisma.pedido_itemsCreateWithoutReceta_detallesInput[] | Prisma.pedido_itemsUncheckedCreateWithoutReceta_detallesInput[]
+  connectOrCreate?: Prisma.pedido_itemsCreateOrConnectWithoutReceta_detallesInput | Prisma.pedido_itemsCreateOrConnectWithoutReceta_detallesInput[]
+  createMany?: Prisma.pedido_itemsCreateManyReceta_detallesInputEnvelope
+  connect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+}
+
+export type pedido_itemsUncheckedCreateNestedManyWithoutReceta_detallesInput = {
+  create?: Prisma.XOR<Prisma.pedido_itemsCreateWithoutReceta_detallesInput, Prisma.pedido_itemsUncheckedCreateWithoutReceta_detallesInput> | Prisma.pedido_itemsCreateWithoutReceta_detallesInput[] | Prisma.pedido_itemsUncheckedCreateWithoutReceta_detallesInput[]
+  connectOrCreate?: Prisma.pedido_itemsCreateOrConnectWithoutReceta_detallesInput | Prisma.pedido_itemsCreateOrConnectWithoutReceta_detallesInput[]
+  createMany?: Prisma.pedido_itemsCreateManyReceta_detallesInputEnvelope
+  connect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+}
+
+export type pedido_itemsUpdateManyWithoutReceta_detallesNestedInput = {
+  create?: Prisma.XOR<Prisma.pedido_itemsCreateWithoutReceta_detallesInput, Prisma.pedido_itemsUncheckedCreateWithoutReceta_detallesInput> | Prisma.pedido_itemsCreateWithoutReceta_detallesInput[] | Prisma.pedido_itemsUncheckedCreateWithoutReceta_detallesInput[]
+  connectOrCreate?: Prisma.pedido_itemsCreateOrConnectWithoutReceta_detallesInput | Prisma.pedido_itemsCreateOrConnectWithoutReceta_detallesInput[]
+  upsert?: Prisma.pedido_itemsUpsertWithWhereUniqueWithoutReceta_detallesInput | Prisma.pedido_itemsUpsertWithWhereUniqueWithoutReceta_detallesInput[]
+  createMany?: Prisma.pedido_itemsCreateManyReceta_detallesInputEnvelope
+  set?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  disconnect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  delete?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  connect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  update?: Prisma.pedido_itemsUpdateWithWhereUniqueWithoutReceta_detallesInput | Prisma.pedido_itemsUpdateWithWhereUniqueWithoutReceta_detallesInput[]
+  updateMany?: Prisma.pedido_itemsUpdateManyWithWhereWithoutReceta_detallesInput | Prisma.pedido_itemsUpdateManyWithWhereWithoutReceta_detallesInput[]
+  deleteMany?: Prisma.pedido_itemsScalarWhereInput | Prisma.pedido_itemsScalarWhereInput[]
+}
+
+export type pedido_itemsUncheckedUpdateManyWithoutReceta_detallesNestedInput = {
+  create?: Prisma.XOR<Prisma.pedido_itemsCreateWithoutReceta_detallesInput, Prisma.pedido_itemsUncheckedCreateWithoutReceta_detallesInput> | Prisma.pedido_itemsCreateWithoutReceta_detallesInput[] | Prisma.pedido_itemsUncheckedCreateWithoutReceta_detallesInput[]
+  connectOrCreate?: Prisma.pedido_itemsCreateOrConnectWithoutReceta_detallesInput | Prisma.pedido_itemsCreateOrConnectWithoutReceta_detallesInput[]
+  upsert?: Prisma.pedido_itemsUpsertWithWhereUniqueWithoutReceta_detallesInput | Prisma.pedido_itemsUpsertWithWhereUniqueWithoutReceta_detallesInput[]
+  createMany?: Prisma.pedido_itemsCreateManyReceta_detallesInputEnvelope
+  set?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  disconnect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  delete?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  connect?: Prisma.pedido_itemsWhereUniqueInput | Prisma.pedido_itemsWhereUniqueInput[]
+  update?: Prisma.pedido_itemsUpdateWithWhereUniqueWithoutReceta_detallesInput | Prisma.pedido_itemsUpdateWithWhereUniqueWithoutReceta_detallesInput[]
+  updateMany?: Prisma.pedido_itemsUpdateManyWithWhereWithoutReceta_detallesInput | Prisma.pedido_itemsUpdateManyWithWhereWithoutReceta_detallesInput[]
+  deleteMany?: Prisma.pedido_itemsScalarWhereInput | Prisma.pedido_itemsScalarWhereInput[]
+}
+
+export type pedido_itemsCreateWithoutMedicamentosInput = {
+  id?: string
+  nombre_producto: string
+  precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad: number
+  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  pedidos: Prisma.pedidosCreateNestedOneWithoutPedido_itemsInput
+  receta_detalles?: Prisma.receta_detallesCreateNestedOneWithoutPedido_itemsInput
+}
+
+export type pedido_itemsUncheckedCreateWithoutMedicamentosInput = {
+  id?: string
+  pedido_id: string
+  receta_detalle_id?: string | null
+  nombre_producto: string
+  precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad: number
+  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsCreateOrConnectWithoutMedicamentosInput = {
+  where: Prisma.pedido_itemsWhereUniqueInput
+  create: Prisma.XOR<Prisma.pedido_itemsCreateWithoutMedicamentosInput, Prisma.pedido_itemsUncheckedCreateWithoutMedicamentosInput>
+}
+
+export type pedido_itemsCreateManyMedicamentosInputEnvelope = {
+  data: Prisma.pedido_itemsCreateManyMedicamentosInput | Prisma.pedido_itemsCreateManyMedicamentosInput[]
+  skipDuplicates?: boolean
+}
+
+export type pedido_itemsUpsertWithWhereUniqueWithoutMedicamentosInput = {
+  where: Prisma.pedido_itemsWhereUniqueInput
+  update: Prisma.XOR<Prisma.pedido_itemsUpdateWithoutMedicamentosInput, Prisma.pedido_itemsUncheckedUpdateWithoutMedicamentosInput>
+  create: Prisma.XOR<Prisma.pedido_itemsCreateWithoutMedicamentosInput, Prisma.pedido_itemsUncheckedCreateWithoutMedicamentosInput>
+}
+
+export type pedido_itemsUpdateWithWhereUniqueWithoutMedicamentosInput = {
+  where: Prisma.pedido_itemsWhereUniqueInput
+  data: Prisma.XOR<Prisma.pedido_itemsUpdateWithoutMedicamentosInput, Prisma.pedido_itemsUncheckedUpdateWithoutMedicamentosInput>
+}
+
+export type pedido_itemsUpdateManyWithWhereWithoutMedicamentosInput = {
+  where: Prisma.pedido_itemsScalarWhereInput
+  data: Prisma.XOR<Prisma.pedido_itemsUpdateManyMutationInput, Prisma.pedido_itemsUncheckedUpdateManyWithoutMedicamentosInput>
+}
+
+export type pedido_itemsScalarWhereInput = {
+  AND?: Prisma.pedido_itemsScalarWhereInput | Prisma.pedido_itemsScalarWhereInput[]
+  OR?: Prisma.pedido_itemsScalarWhereInput[]
+  NOT?: Prisma.pedido_itemsScalarWhereInput | Prisma.pedido_itemsScalarWhereInput[]
+  id?: Prisma.UuidFilter<"pedido_items"> | string
+  pedido_id?: Prisma.UuidFilter<"pedido_items"> | string
+  medicamento_id?: Prisma.UuidFilter<"pedido_items"> | string
+  receta_detalle_id?: Prisma.UuidNullableFilter<"pedido_items"> | string | null
+  nombre_producto?: Prisma.StringFilter<"pedido_items"> | string
+  precio_unitario?: Prisma.DecimalFilter<"pedido_items"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntFilter<"pedido_items"> | number
+  subtotal?: Prisma.DecimalFilter<"pedido_items"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsCreateWithoutPedidosInput = {
+  id?: string
+  nombre_producto: string
+  precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad: number
+  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  medicamentos: Prisma.medicamentosCreateNestedOneWithoutPedido_itemsInput
+  receta_detalles?: Prisma.receta_detallesCreateNestedOneWithoutPedido_itemsInput
+}
+
+export type pedido_itemsUncheckedCreateWithoutPedidosInput = {
+  id?: string
+  medicamento_id: string
+  receta_detalle_id?: string | null
+  nombre_producto: string
+  precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad: number
+  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsCreateOrConnectWithoutPedidosInput = {
+  where: Prisma.pedido_itemsWhereUniqueInput
+  create: Prisma.XOR<Prisma.pedido_itemsCreateWithoutPedidosInput, Prisma.pedido_itemsUncheckedCreateWithoutPedidosInput>
+}
+
+export type pedido_itemsCreateManyPedidosInputEnvelope = {
+  data: Prisma.pedido_itemsCreateManyPedidosInput | Prisma.pedido_itemsCreateManyPedidosInput[]
+  skipDuplicates?: boolean
+}
+
+export type pedido_itemsUpsertWithWhereUniqueWithoutPedidosInput = {
+  where: Prisma.pedido_itemsWhereUniqueInput
+  update: Prisma.XOR<Prisma.pedido_itemsUpdateWithoutPedidosInput, Prisma.pedido_itemsUncheckedUpdateWithoutPedidosInput>
+  create: Prisma.XOR<Prisma.pedido_itemsCreateWithoutPedidosInput, Prisma.pedido_itemsUncheckedCreateWithoutPedidosInput>
+}
+
+export type pedido_itemsUpdateWithWhereUniqueWithoutPedidosInput = {
+  where: Prisma.pedido_itemsWhereUniqueInput
+  data: Prisma.XOR<Prisma.pedido_itemsUpdateWithoutPedidosInput, Prisma.pedido_itemsUncheckedUpdateWithoutPedidosInput>
+}
+
+export type pedido_itemsUpdateManyWithWhereWithoutPedidosInput = {
+  where: Prisma.pedido_itemsScalarWhereInput
+  data: Prisma.XOR<Prisma.pedido_itemsUpdateManyMutationInput, Prisma.pedido_itemsUncheckedUpdateManyWithoutPedidosInput>
+}
+
+export type pedido_itemsCreateWithoutReceta_detallesInput = {
+  id?: string
+  nombre_producto: string
+  precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad: number
+  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  medicamentos: Prisma.medicamentosCreateNestedOneWithoutPedido_itemsInput
+  pedidos: Prisma.pedidosCreateNestedOneWithoutPedido_itemsInput
+}
+
+export type pedido_itemsUncheckedCreateWithoutReceta_detallesInput = {
+  id?: string
+  pedido_id: string
+  medicamento_id: string
+  nombre_producto: string
+  precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad: number
+  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsCreateOrConnectWithoutReceta_detallesInput = {
+  where: Prisma.pedido_itemsWhereUniqueInput
+  create: Prisma.XOR<Prisma.pedido_itemsCreateWithoutReceta_detallesInput, Prisma.pedido_itemsUncheckedCreateWithoutReceta_detallesInput>
+}
+
+export type pedido_itemsCreateManyReceta_detallesInputEnvelope = {
+  data: Prisma.pedido_itemsCreateManyReceta_detallesInput | Prisma.pedido_itemsCreateManyReceta_detallesInput[]
+  skipDuplicates?: boolean
+}
+
+export type pedido_itemsUpsertWithWhereUniqueWithoutReceta_detallesInput = {
+  where: Prisma.pedido_itemsWhereUniqueInput
+  update: Prisma.XOR<Prisma.pedido_itemsUpdateWithoutReceta_detallesInput, Prisma.pedido_itemsUncheckedUpdateWithoutReceta_detallesInput>
+  create: Prisma.XOR<Prisma.pedido_itemsCreateWithoutReceta_detallesInput, Prisma.pedido_itemsUncheckedCreateWithoutReceta_detallesInput>
+}
+
+export type pedido_itemsUpdateWithWhereUniqueWithoutReceta_detallesInput = {
+  where: Prisma.pedido_itemsWhereUniqueInput
+  data: Prisma.XOR<Prisma.pedido_itemsUpdateWithoutReceta_detallesInput, Prisma.pedido_itemsUncheckedUpdateWithoutReceta_detallesInput>
+}
+
+export type pedido_itemsUpdateManyWithWhereWithoutReceta_detallesInput = {
+  where: Prisma.pedido_itemsScalarWhereInput
+  data: Prisma.XOR<Prisma.pedido_itemsUpdateManyMutationInput, Prisma.pedido_itemsUncheckedUpdateManyWithoutReceta_detallesInput>
+}
+
+export type pedido_itemsCreateManyMedicamentosInput = {
+  id?: string
+  pedido_id: string
+  receta_detalle_id?: string | null
+  nombre_producto: string
+  precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad: number
+  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsUpdateWithoutMedicamentosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre_producto?: Prisma.StringFieldUpdateOperationsInput | string
+  precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntFieldUpdateOperationsInput | number
+  subtotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  pedidos?: Prisma.pedidosUpdateOneRequiredWithoutPedido_itemsNestedInput
+  receta_detalles?: Prisma.receta_detallesUpdateOneWithoutPedido_itemsNestedInput
+}
+
+export type pedido_itemsUncheckedUpdateWithoutMedicamentosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  pedido_id?: Prisma.StringFieldUpdateOperationsInput | string
+  receta_detalle_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nombre_producto?: Prisma.StringFieldUpdateOperationsInput | string
+  precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntFieldUpdateOperationsInput | number
+  subtotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsUncheckedUpdateManyWithoutMedicamentosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  pedido_id?: Prisma.StringFieldUpdateOperationsInput | string
+  receta_detalle_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nombre_producto?: Prisma.StringFieldUpdateOperationsInput | string
+  precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntFieldUpdateOperationsInput | number
+  subtotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsCreateManyPedidosInput = {
+  id?: string
+  medicamento_id: string
+  receta_detalle_id?: string | null
+  nombre_producto: string
+  precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad: number
+  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsUpdateWithoutPedidosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre_producto?: Prisma.StringFieldUpdateOperationsInput | string
+  precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntFieldUpdateOperationsInput | number
+  subtotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  medicamentos?: Prisma.medicamentosUpdateOneRequiredWithoutPedido_itemsNestedInput
+  receta_detalles?: Prisma.receta_detallesUpdateOneWithoutPedido_itemsNestedInput
+}
+
+export type pedido_itemsUncheckedUpdateWithoutPedidosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  medicamento_id?: Prisma.StringFieldUpdateOperationsInput | string
+  receta_detalle_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nombre_producto?: Prisma.StringFieldUpdateOperationsInput | string
+  precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntFieldUpdateOperationsInput | number
+  subtotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsUncheckedUpdateManyWithoutPedidosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  medicamento_id?: Prisma.StringFieldUpdateOperationsInput | string
+  receta_detalle_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nombre_producto?: Prisma.StringFieldUpdateOperationsInput | string
+  precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntFieldUpdateOperationsInput | number
+  subtotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsCreateManyReceta_detallesInput = {
+  id?: string
+  pedido_id: string
+  medicamento_id: string
+  nombre_producto: string
+  precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad: number
+  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsUpdateWithoutReceta_detallesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre_producto?: Prisma.StringFieldUpdateOperationsInput | string
+  precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntFieldUpdateOperationsInput | number
+  subtotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  medicamentos?: Prisma.medicamentosUpdateOneRequiredWithoutPedido_itemsNestedInput
+  pedidos?: Prisma.pedidosUpdateOneRequiredWithoutPedido_itemsNestedInput
+}
+
+export type pedido_itemsUncheckedUpdateWithoutReceta_detallesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  pedido_id?: Prisma.StringFieldUpdateOperationsInput | string
+  medicamento_id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre_producto?: Prisma.StringFieldUpdateOperationsInput | string
+  precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntFieldUpdateOperationsInput | number
+  subtotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type pedido_itemsUncheckedUpdateManyWithoutReceta_detallesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  pedido_id?: Prisma.StringFieldUpdateOperationsInput | string
+  medicamento_id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre_producto?: Prisma.StringFieldUpdateOperationsInput | string
+  precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  cantidad?: Prisma.IntFieldUpdateOperationsInput | number
+  subtotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+
+
+export type pedido_itemsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  id?: boolean
+  pedido_id?: boolean
+  medicamento_id?: boolean
+  receta_detalle_id?: boolean
+  nombre_producto?: boolean
+  precio_unitario?: boolean
+  cantidad?: boolean
+  subtotal?: boolean
+  medicamentos?: boolean | Prisma.medicamentosDefaultArgs<ExtArgs>
+  pedidos?: boolean | Prisma.pedidosDefaultArgs<ExtArgs>
+  receta_detalles?: boolean | Prisma.pedido_items$receta_detallesArgs<ExtArgs>
+}, ExtArgs["result"]["pedido_items"]>
+
+export type pedido_itemsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  id?: boolean
+  pedido_id?: boolean
+  medicamento_id?: boolean
+  receta_detalle_id?: boolean
+  nombre_producto?: boolean
+  precio_unitario?: boolean
+  cantidad?: boolean
+  subtotal?: boolean
+  medicamentos?: boolean | Prisma.medicamentosDefaultArgs<ExtArgs>
+  pedidos?: boolean | Prisma.pedidosDefaultArgs<ExtArgs>
+  receta_detalles?: boolean | Prisma.pedido_items$receta_detallesArgs<ExtArgs>
+}, ExtArgs["result"]["pedido_items"]>
+
+export type pedido_itemsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  id?: boolean
+  pedido_id?: boolean
+  medicamento_id?: boolean
+  receta_detalle_id?: boolean
+  nombre_producto?: boolean
+  precio_unitario?: boolean
+  cantidad?: boolean
+  subtotal?: boolean
+  medicamentos?: boolean | Prisma.medicamentosDefaultArgs<ExtArgs>
+  pedidos?: boolean | Prisma.pedidosDefaultArgs<ExtArgs>
+  receta_detalles?: boolean | Prisma.pedido_items$receta_detallesArgs<ExtArgs>
+}, ExtArgs["result"]["pedido_items"]>
+
+export type pedido_itemsSelectScalar = {
+  id?: boolean
+  pedido_id?: boolean
+  medicamento_id?: boolean
+  receta_detalle_id?: boolean
+  nombre_producto?: boolean
+  precio_unitario?: boolean
+  cantidad?: boolean
+  subtotal?: boolean
+}
+
+export type pedido_itemsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "pedido_id" | "medicamento_id" | "receta_detalle_id" | "nombre_producto" | "precio_unitario" | "cantidad" | "subtotal", ExtArgs["result"]["pedido_items"]>
+export type pedido_itemsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  medicamentos?: boolean | Prisma.medicamentosDefaultArgs<ExtArgs>
+  pedidos?: boolean | Prisma.pedidosDefaultArgs<ExtArgs>
+  receta_detalles?: boolean | Prisma.pedido_items$receta_detallesArgs<ExtArgs>
+}
+export type pedido_itemsIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  medicamentos?: boolean | Prisma.medicamentosDefaultArgs<ExtArgs>
+  pedidos?: boolean | Prisma.pedidosDefaultArgs<ExtArgs>
+  receta_detalles?: boolean | Prisma.pedido_items$receta_detallesArgs<ExtArgs>
+}
+export type pedido_itemsIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  medicamentos?: boolean | Prisma.medicamentosDefaultArgs<ExtArgs>
+  pedidos?: boolean | Prisma.pedidosDefaultArgs<ExtArgs>
+  receta_detalles?: boolean | Prisma.pedido_items$receta_detallesArgs<ExtArgs>
+}
+
+export type $pedido_itemsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "pedido_items"
+  objects: {
+    medicamentos: Prisma.$medicamentosPayload<ExtArgs>
+    pedidos: Prisma.$pedidosPayload<ExtArgs>
+    receta_detalles: Prisma.$receta_detallesPayload<ExtArgs> | null
+  }
+  scalars: runtime.Types.Extensions.GetPayloadResult<{
+    id: string
+    pedido_id: string
+    medicamento_id: string
+    receta_detalle_id: string | null
+    nombre_producto: string
+    precio_unitario: runtime.Decimal
+    cantidad: number
+    subtotal: runtime.Decimal
+  }, ExtArgs["result"]["pedido_items"]>
+  composites: {}
+}
+
+export type pedido_itemsGetPayload<S extends boolean | null | undefined | pedido_itemsDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$pedido_itemsPayload, S>
+
+export type pedido_itemsCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<pedido_itemsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: Pedido_itemsCountAggregateInputType | true
+  }
+
+export interface pedido_itemsDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['pedido_items'], meta: { name: 'pedido_items' } }
+  /**
+   * Find zero or one Pedido_items that matches the filter.
+   * @param {pedido_itemsFindUniqueArgs} args - Arguments to find a Pedido_items
+   * @example
+   * // Get one Pedido_items
+   * const pedido_items = await prisma.pedido_items.findUnique({
+   *   where: {
+   *     // ... provide filter here
+   *   }
+   * })
+   */
+  findUnique<T extends pedido_itemsFindUniqueArgs>(args: Prisma.SelectSubset<T, pedido_itemsFindUniqueArgs<ExtArgs>>): Prisma.Prisma__pedido_itemsClient<runtime.Types.Result.GetResult<Prisma.$pedido_itemsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+  /**
+   * Find one Pedido_items that matches the filter or throw an error with `error.code='P2025'`
+   * if no matches were found.
+   * @param {pedido_itemsFindUniqueOrThrowArgs} args - Arguments to find a Pedido_items
+   * @example
+   * // Get one Pedido_items
+   * const pedido_items = await prisma.pedido_items.findUniqueOrThrow({
+   *   where: {
+   *     // ... provide filter here
+   *   }
+   * })
+   */
+  findUniqueOrThrow<T extends pedido_itemsFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, pedido_itemsFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__pedido_itemsClient<runtime.Types.Result.GetResult<Prisma.$pedido_itemsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+  /**
+   * Find the first Pedido_items that matches the filter.
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * @param {pedido_itemsFindFirstArgs} args - Arguments to find a Pedido_items
+   * @example
+   * // Get one Pedido_items
+   * const pedido_items = await prisma.pedido_items.findFirst({
+   *   where: {
+   *     // ... provide filter here
+   *   }
+   * })
+   */
+  findFirst<T extends pedido_itemsFindFirstArgs>(args?: Prisma.SelectSubset<T, pedido_itemsFindFirstArgs<ExtArgs>>): Prisma.Prisma__pedido_itemsClient<runtime.Types.Result.GetResult<Prisma.$pedido_itemsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+  /**
+   * Find the first Pedido_items that matches the filter or
+   * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * @param {pedido_itemsFindFirstOrThrowArgs} args - Arguments to find a Pedido_items
+   * @example
+   * // Get one Pedido_items
+   * const pedido_items = await prisma.pedido_items.findFirstOrThrow({
+   *   where: {
+   *     // ... provide filter here
+   *   }
+   * })
+   */
+  findFirstOrThrow<T extends pedido_itemsFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, pedido_itemsFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__pedido_itemsClient<runtime.Types.Result.GetResult<Prisma.$pedido_itemsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+  /**
+   * Find zero or more Pedido_items that matches the filter.
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * @param {pedido_itemsFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @example
+   * // Get all Pedido_items
+   * const pedido_items = await prisma.pedido_items.findMany()
+   * 
+   * // Get first 10 Pedido_items
+   * const pedido_items = await prisma.pedido_items.findMany({ take: 10 })
+   * 
+   * // Only select the `id`
+   * const pedido_itemsWithIdOnly = await prisma.pedido_items.findMany({ select: { id: true } })
+   * 
+   */
+  findMany<T extends pedido_itemsFindManyArgs>(args?: Prisma.SelectSubset<T, pedido_itemsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$pedido_itemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+  /**
+   * Create a Pedido_items.
+   * @param {pedido_itemsCreateArgs} args - Arguments to create a Pedido_items.
+   * @example
+   * // Create one Pedido_items
+   * const Pedido_items = await prisma.pedido_items.create({
+   *   data: {
+   *     // ... data to create a Pedido_items
+   *   }
+   * })
+   * 
+   */
+  create<T extends pedido_itemsCreateArgs>(args: Prisma.SelectSubset<T, pedido_itemsCreateArgs<ExtArgs>>): Prisma.Prisma__pedido_itemsClient<runtime.Types.Result.GetResult<Prisma.$pedido_itemsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+  /**
+   * Create many Pedido_items.
+   * @param {pedido_itemsCreateManyArgs} args - Arguments to create many Pedido_items.
+   * @example
+   * // Create many Pedido_items
+   * const pedido_items = await prisma.pedido_items.createMany({
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   *     
+   */
+  createMany<T extends pedido_itemsCreateManyArgs>(args?: Prisma.SelectSubset<T, pedido_itemsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+
+  /**
+   * Create many Pedido_items and returns the data saved in the database.
+   * @param {pedido_itemsCreateManyAndReturnArgs} args - Arguments to create many Pedido_items.
+   * @example
+   * // Create many Pedido_items
+   * const pedido_items = await prisma.pedido_items.createManyAndReturn({
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   * 
+   * // Create many Pedido_items and only return the `id`
+   * const pedido_itemsWithIdOnly = await prisma.pedido_items.createManyAndReturn({
+   *   select: { id: true },
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * 
+   */
+  createManyAndReturn<T extends pedido_itemsCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, pedido_itemsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$pedido_itemsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+  /**
+   * Delete a Pedido_items.
+   * @param {pedido_itemsDeleteArgs} args - Arguments to delete one Pedido_items.
+   * @example
+   * // Delete one Pedido_items
+   * const Pedido_items = await prisma.pedido_items.delete({
+   *   where: {
+   *     // ... filter to delete one Pedido_items
+   *   }
+   * })
+   * 
+   */
+  delete<T extends pedido_itemsDeleteArgs>(args: Prisma.SelectSubset<T, pedido_itemsDeleteArgs<ExtArgs>>): Prisma.Prisma__pedido_itemsClient<runtime.Types.Result.GetResult<Prisma.$pedido_itemsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+  /**
+   * Update one Pedido_items.
+   * @param {pedido_itemsUpdateArgs} args - Arguments to update one Pedido_items.
+   * @example
+   * // Update one Pedido_items
+   * const pedido_items = await prisma.pedido_items.update({
+   *   where: {
+   *     // ... provide filter here
+   *   },
+   *   data: {
+   *     // ... provide data here
+   *   }
+   * })
+   * 
+   */
+  update<T extends pedido_itemsUpdateArgs>(args: Prisma.SelectSubset<T, pedido_itemsUpdateArgs<ExtArgs>>): Prisma.Prisma__pedido_itemsClient<runtime.Types.Result.GetResult<Prisma.$pedido_itemsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+  /**
+   * Delete zero or more Pedido_items.
+   * @param {pedido_itemsDeleteManyArgs} args - Arguments to filter Pedido_items to delete.
+   * @example
+   * // Delete a few Pedido_items
+   * const { count } = await prisma.pedido_items.deleteMany({
+   *   where: {
+   *     // ... provide filter here
+   *   }
+   * })
+   * 
+   */
+  deleteMany<T extends pedido_itemsDeleteManyArgs>(args?: Prisma.SelectSubset<T, pedido_itemsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+
+  /**
+   * Update zero or more Pedido_items.
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * @param {pedido_itemsUpdateManyArgs} args - Arguments to update one or more rows.
+   * @example
+   * // Update many Pedido_items
+   * const pedido_items = await prisma.pedido_items.updateMany({
+   *   where: {
+   *     // ... provide filter here
+   *   },
+   *   data: {
+   *     // ... provide data here
+   *   }
+   * })
+   * 
+   */
+  updateMany<T extends pedido_itemsUpdateManyArgs>(args: Prisma.SelectSubset<T, pedido_itemsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+
+  /**
+   * Update zero or more Pedido_items and returns the data updated in the database.
+   * @param {pedido_itemsUpdateManyAndReturnArgs} args - Arguments to update many Pedido_items.
+   * @example
+   * // Update many Pedido_items
+   * const pedido_items = await prisma.pedido_items.updateManyAndReturn({
+   *   where: {
+   *     // ... provide filter here
+   *   },
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   * 
+   * // Update zero or more Pedido_items and only return the `id`
+   * const pedido_itemsWithIdOnly = await prisma.pedido_items.updateManyAndReturn({
+   *   select: { id: true },
+   *   where: {
+   *     // ... provide filter here
+   *   },
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * 
+   */
+  updateManyAndReturn<T extends pedido_itemsUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, pedido_itemsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$pedido_itemsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+  /**
+   * Create or update one Pedido_items.
+   * @param {pedido_itemsUpsertArgs} args - Arguments to update or create a Pedido_items.
+   * @example
+   * // Update or create a Pedido_items
+   * const pedido_items = await prisma.pedido_items.upsert({
+   *   create: {
+   *     // ... data to create a Pedido_items
+   *   },
+   *   update: {
+   *     // ... in case it already exists, update
+   *   },
+   *   where: {
+   *     // ... the filter for the Pedido_items we want to update
+   *   }
+   * })
+   */
+  upsert<T extends pedido_itemsUpsertArgs>(args: Prisma.SelectSubset<T, pedido_itemsUpsertArgs<ExtArgs>>): Prisma.Prisma__pedido_itemsClient<runtime.Types.Result.GetResult<Prisma.$pedido_itemsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+  /**
+   * Count the number of Pedido_items.
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * @param {pedido_itemsCountArgs} args - Arguments to filter Pedido_items to count.
+   * @example
+   * // Count the number of Pedido_items
+   * const count = await prisma.pedido_items.count({
+   *   where: {
+   *     // ... the filter for the Pedido_items we want to count
+   *   }
+   * })
+  **/
+  count<T extends pedido_itemsCountArgs>(
+    args?: Prisma.Subset<T, pedido_itemsCountArgs>,
+  ): Prisma.PrismaPromise<
+    T extends runtime.Types.Utils.Record<'select', any>
+      ? T['select'] extends true
+        ? number
+        : Prisma.GetScalarType<T['select'], Pedido_itemsCountAggregateOutputType>
+      : number
+  >
+
+  /**
+   * Allows you to perform aggregations operations on a Pedido_items.
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * @param {Pedido_itemsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+   * @example
+   * // Ordered by age ascending
+   * // Where email contains prisma.io
+   * // Limited to the 10 users
+   * const aggregations = await prisma.user.aggregate({
+   *   _avg: {
+   *     age: true,
+   *   },
+   *   where: {
+   *     email: {
+   *       contains: "prisma.io",
+   *     },
+   *   },
+   *   orderBy: {
+   *     age: "asc",
+   *   },
+   *   take: 10,
+   * })
+  **/
+  aggregate<T extends Pedido_itemsAggregateArgs>(args: Prisma.Subset<T, Pedido_itemsAggregateArgs>): Prisma.PrismaPromise<GetPedido_itemsAggregateType<T>>
+
+  /**
+   * Group by Pedido_items.
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * @param {pedido_itemsGroupByArgs} args - Group by arguments.
+   * @example
+   * // Group by city, order by createdAt, get count
+   * const result = await prisma.user.groupBy({
+   *   by: ['city', 'createdAt'],
+   *   orderBy: {
+   *     createdAt: true
+   *   },
+   *   _count: {
+   *     _all: true
+   *   },
+   * })
+   * 
+  **/
+  groupBy<
+    T extends pedido_itemsGroupByArgs,
+    HasSelectOrTake extends Prisma.Or<
+      Prisma.Extends<'skip', Prisma.Keys<T>>,
+      Prisma.Extends<'take', Prisma.Keys<T>>
+    >,
+    OrderByArg extends Prisma.True extends HasSelectOrTake
+      ? { orderBy: pedido_itemsGroupByArgs['orderBy'] }
+      : { orderBy?: pedido_itemsGroupByArgs['orderBy'] },
+    OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
+    ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
+    ByValid extends Prisma.Has<ByFields, OrderFields>,
+    HavingFields extends Prisma.GetHavingFields<T['having']>,
+    HavingValid extends Prisma.Has<ByFields, HavingFields>,
+    ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False,
+    InputErrors extends ByEmpty extends Prisma.True
+    ? `Error: "by" must not be empty.`
+    : HavingValid extends Prisma.False
+    ? {
+        [P in HavingFields]: P extends ByFields
+          ? never
+          : P extends string
+          ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+          : [
+              Error,
+              'Field ',
+              P,
+              ` in "having" needs to be provided in "by"`,
+            ]
+      }[HavingFields]
+    : 'take' extends Prisma.Keys<T>
+    ? 'orderBy' extends Prisma.Keys<T>
+      ? ByValid extends Prisma.True
+        ? {}
+        : {
+            [P in OrderFields]: P extends ByFields
+              ? never
+              : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+          }[OrderFields]
+      : 'Error: If you provide "take", you also need to provide "orderBy"'
+    : 'skip' extends Prisma.Keys<T>
+    ? 'orderBy' extends Prisma.Keys<T>
+      ? ByValid extends Prisma.True
+        ? {}
+        : {
+            [P in OrderFields]: P extends ByFields
+              ? never
+              : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+          }[OrderFields]
+      : 'Error: If you provide "skip", you also need to provide "orderBy"'
+    : ByValid extends Prisma.True
+    ? {}
+    : {
+        [P in OrderFields]: P extends ByFields
+          ? never
+          : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+      }[OrderFields]
+  >(args: Prisma.SubsetIntersection<T, pedido_itemsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPedido_itemsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+/**
+ * Fields of the pedido_items model
+ */
+readonly fields: pedido_itemsFieldRefs;
+}
+
+/**
+ * The delegate class that acts as a "Promise-like" for pedido_items.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__pedido_itemsClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  readonly [Symbol.toStringTag]: "PrismaPromise"
+  medicamentos<T extends Prisma.medicamentosDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.medicamentosDefaultArgs<ExtArgs>>): Prisma.Prisma__medicamentosClient<runtime.Types.Result.GetResult<Prisma.$medicamentosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  pedidos<T extends Prisma.pedidosDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.pedidosDefaultArgs<ExtArgs>>): Prisma.Prisma__pedidosClient<runtime.Types.Result.GetResult<Prisma.$pedidosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  receta_detalles<T extends Prisma.pedido_items$receta_detallesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.pedido_items$receta_detallesArgs<ExtArgs>>): Prisma.Prisma__receta_detallesClient<runtime.Types.Result.GetResult<Prisma.$receta_detallesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  /**
+   * Attaches callbacks for the resolution and/or rejection of the Promise.
+   * @param onfulfilled The callback to execute when the Promise is resolved.
+   * @param onrejected The callback to execute when the Promise is rejected.
+   * @returns A Promise for the completion of which ever callback is executed.
+   */
+  then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>
+  /**
+   * Attaches a callback for only the rejection of the Promise.
+   * @param onrejected The callback to execute when the Promise is rejected.
+   * @returns A Promise for the completion of the callback.
+   */
+  catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>
+  /**
+   * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+   * resolved value cannot be modified from the callback.
+   * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+   * @returns A Promise for the completion of the callback.
+   */
+  finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>
+}
+
+
+
+
+/**
+ * Fields of the pedido_items model
+ */
+export interface pedido_itemsFieldRefs {
+  readonly id: Prisma.FieldRef<"pedido_items", 'String'>
+  readonly pedido_id: Prisma.FieldRef<"pedido_items", 'String'>
+  readonly medicamento_id: Prisma.FieldRef<"pedido_items", 'String'>
+  readonly receta_detalle_id: Prisma.FieldRef<"pedido_items", 'String'>
+  readonly nombre_producto: Prisma.FieldRef<"pedido_items", 'String'>
+  readonly precio_unitario: Prisma.FieldRef<"pedido_items", 'Decimal'>
+  readonly cantidad: Prisma.FieldRef<"pedido_items", 'Int'>
+  readonly subtotal: Prisma.FieldRef<"pedido_items", 'Decimal'>
+}
+    
+
+// Custom InputTypes
+/**
+ * pedido_items findUnique
+ */
+export type pedido_itemsFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the pedido_items
+   */
+  select?: Prisma.pedido_itemsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the pedido_items
+   */
+  omit?: Prisma.pedido_itemsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pedido_itemsInclude<ExtArgs> | null
+  /**
+   * Filter, which pedido_items to fetch.
+   */
+  where: Prisma.pedido_itemsWhereUniqueInput
+}
+
+/**
+ * pedido_items findUniqueOrThrow
+ */
+export type pedido_itemsFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the pedido_items
+   */
+  select?: Prisma.pedido_itemsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the pedido_items
+   */
+  omit?: Prisma.pedido_itemsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pedido_itemsInclude<ExtArgs> | null
+  /**
+   * Filter, which pedido_items to fetch.
+   */
+  where: Prisma.pedido_itemsWhereUniqueInput
+}
+
+/**
+ * pedido_items findFirst
+ */
+export type pedido_itemsFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the pedido_items
+   */
+  select?: Prisma.pedido_itemsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the pedido_items
+   */
+  omit?: Prisma.pedido_itemsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pedido_itemsInclude<ExtArgs> | null
+  /**
+   * Filter, which pedido_items to fetch.
+   */
+  where?: Prisma.pedido_itemsWhereInput
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+   * 
+   * Determine the order of pedido_items to fetch.
+   */
+  orderBy?: Prisma.pedido_itemsOrderByWithRelationInput | Prisma.pedido_itemsOrderByWithRelationInput[]
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+   * 
+   * Sets the position for searching for pedido_items.
+   */
+  cursor?: Prisma.pedido_itemsWhereUniqueInput
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+   * 
+   * Take `±n` pedido_items from the position of the cursor.
+   */
+  take?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+   * 
+   * Skip the first `n` pedido_items.
+   */
+  skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of pedido_items.
+   */
+  distinct?: Prisma.Pedido_itemsScalarFieldEnum | Prisma.Pedido_itemsScalarFieldEnum[]
+}
+
+/**
+ * pedido_items findFirstOrThrow
+ */
+export type pedido_itemsFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the pedido_items
+   */
+  select?: Prisma.pedido_itemsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the pedido_items
+   */
+  omit?: Prisma.pedido_itemsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pedido_itemsInclude<ExtArgs> | null
+  /**
+   * Filter, which pedido_items to fetch.
+   */
+  where?: Prisma.pedido_itemsWhereInput
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+   * 
+   * Determine the order of pedido_items to fetch.
+   */
+  orderBy?: Prisma.pedido_itemsOrderByWithRelationInput | Prisma.pedido_itemsOrderByWithRelationInput[]
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+   * 
+   * Sets the position for searching for pedido_items.
+   */
+  cursor?: Prisma.pedido_itemsWhereUniqueInput
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+   * 
+   * Take `±n` pedido_items from the position of the cursor.
+   */
+  take?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+   * 
+   * Skip the first `n` pedido_items.
+   */
+  skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of pedido_items.
+   */
+  distinct?: Prisma.Pedido_itemsScalarFieldEnum | Prisma.Pedido_itemsScalarFieldEnum[]
+}
+
+/**
+ * pedido_items findMany
+ */
+export type pedido_itemsFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the pedido_items
+   */
+  select?: Prisma.pedido_itemsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the pedido_items
+   */
+  omit?: Prisma.pedido_itemsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pedido_itemsInclude<ExtArgs> | null
+  /**
+   * Filter, which pedido_items to fetch.
+   */
+  where?: Prisma.pedido_itemsWhereInput
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+   * 
+   * Determine the order of pedido_items to fetch.
+   */
+  orderBy?: Prisma.pedido_itemsOrderByWithRelationInput | Prisma.pedido_itemsOrderByWithRelationInput[]
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+   * 
+   * Sets the position for listing pedido_items.
+   */
+  cursor?: Prisma.pedido_itemsWhereUniqueInput
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+   * 
+   * Take `±n` pedido_items from the position of the cursor.
+   */
+  take?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+   * 
+   * Skip the first `n` pedido_items.
+   */
+  skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of pedido_items.
+   */
+  distinct?: Prisma.Pedido_itemsScalarFieldEnum | Prisma.Pedido_itemsScalarFieldEnum[]
+}
+
+/**
+ * pedido_items create
+ */
+export type pedido_itemsCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the pedido_items
+   */
+  select?: Prisma.pedido_itemsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the pedido_items
+   */
+  omit?: Prisma.pedido_itemsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pedido_itemsInclude<ExtArgs> | null
+  /**
+   * The data needed to create a pedido_items.
+   */
+  data: Prisma.XOR<Prisma.pedido_itemsCreateInput, Prisma.pedido_itemsUncheckedCreateInput>
+}
+
+/**
+ * pedido_items createMany
+ */
+export type pedido_itemsCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * The data used to create many pedido_items.
+   */
+  data: Prisma.pedido_itemsCreateManyInput | Prisma.pedido_itemsCreateManyInput[]
+  skipDuplicates?: boolean
+}
+
+/**
+ * pedido_items createManyAndReturn
+ */
+export type pedido_itemsCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the pedido_items
+   */
+  select?: Prisma.pedido_itemsSelectCreateManyAndReturn<ExtArgs> | null
+  /**
+   * Omit specific fields from the pedido_items
+   */
+  omit?: Prisma.pedido_itemsOmit<ExtArgs> | null
+  /**
+   * The data used to create many pedido_items.
+   */
+  data: Prisma.pedido_itemsCreateManyInput | Prisma.pedido_itemsCreateManyInput[]
+  skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pedido_itemsIncludeCreateManyAndReturn<ExtArgs> | null
+}
+
+/**
+ * pedido_items update
+ */
+export type pedido_itemsUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the pedido_items
+   */
+  select?: Prisma.pedido_itemsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the pedido_items
+   */
+  omit?: Prisma.pedido_itemsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pedido_itemsInclude<ExtArgs> | null
+  /**
+   * The data needed to update a pedido_items.
+   */
+  data: Prisma.XOR<Prisma.pedido_itemsUpdateInput, Prisma.pedido_itemsUncheckedUpdateInput>
+  /**
+   * Choose, which pedido_items to update.
+   */
+  where: Prisma.pedido_itemsWhereUniqueInput
+}
+
+/**
+ * pedido_items updateMany
+ */
+export type pedido_itemsUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * The data used to update pedido_items.
+   */
+  data: Prisma.XOR<Prisma.pedido_itemsUpdateManyMutationInput, Prisma.pedido_itemsUncheckedUpdateManyInput>
+  /**
+   * Filter which pedido_items to update
+   */
+  where?: Prisma.pedido_itemsWhereInput
+  /**
+   * Limit how many pedido_items to update.
+   */
+  limit?: number
+}
+
+/**
+ * pedido_items updateManyAndReturn
+ */
+export type pedido_itemsUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the pedido_items
+   */
+  select?: Prisma.pedido_itemsSelectUpdateManyAndReturn<ExtArgs> | null
+  /**
+   * Omit specific fields from the pedido_items
+   */
+  omit?: Prisma.pedido_itemsOmit<ExtArgs> | null
+  /**
+   * The data used to update pedido_items.
+   */
+  data: Prisma.XOR<Prisma.pedido_itemsUpdateManyMutationInput, Prisma.pedido_itemsUncheckedUpdateManyInput>
+  /**
+   * Filter which pedido_items to update
+   */
+  where?: Prisma.pedido_itemsWhereInput
+  /**
+   * Limit how many pedido_items to update.
+   */
+  limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pedido_itemsIncludeUpdateManyAndReturn<ExtArgs> | null
+}
+
+/**
+ * pedido_items upsert
+ */
+export type pedido_itemsUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the pedido_items
+   */
+  select?: Prisma.pedido_itemsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the pedido_items
+   */
+  omit?: Prisma.pedido_itemsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pedido_itemsInclude<ExtArgs> | null
+  /**
+   * The filter to search for the pedido_items to update in case it exists.
+   */
+  where: Prisma.pedido_itemsWhereUniqueInput
+  /**
+   * In case the pedido_items found by the `where` argument doesn't exist, create a new pedido_items with this data.
+   */
+  create: Prisma.XOR<Prisma.pedido_itemsCreateInput, Prisma.pedido_itemsUncheckedCreateInput>
+  /**
+   * In case the pedido_items was found with the provided `where` argument, update it with this data.
+   */
+  update: Prisma.XOR<Prisma.pedido_itemsUpdateInput, Prisma.pedido_itemsUncheckedUpdateInput>
+}
+
+/**
+ * pedido_items delete
+ */
+export type pedido_itemsDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the pedido_items
+   */
+  select?: Prisma.pedido_itemsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the pedido_items
+   */
+  omit?: Prisma.pedido_itemsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pedido_itemsInclude<ExtArgs> | null
+  /**
+   * Filter which pedido_items to delete.
+   */
+  where: Prisma.pedido_itemsWhereUniqueInput
+}
+
+/**
+ * pedido_items deleteMany
+ */
+export type pedido_itemsDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Filter which pedido_items to delete
+   */
+  where?: Prisma.pedido_itemsWhereInput
+  /**
+   * Limit how many pedido_items to delete.
+   */
+  limit?: number
+}
+
+/**
+ * pedido_items.receta_detalles
+ */
+export type pedido_items$receta_detallesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the receta_detalles
+   */
+  select?: Prisma.receta_detallesSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the receta_detalles
+   */
+  omit?: Prisma.receta_detallesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.receta_detallesInclude<ExtArgs> | null
+  where?: Prisma.receta_detallesWhereInput
+}
+
+/**
+ * pedido_items without action
+ */
+export type pedido_itemsDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the pedido_items
+   */
+  select?: Prisma.pedido_itemsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the pedido_items
+   */
+  omit?: Prisma.pedido_itemsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pedido_itemsInclude<ExtArgs> | null
+}
