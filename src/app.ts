@@ -2,6 +2,7 @@
 import express from "express";
 import cors from "cors";
 import authRoutes from "./interface/routes/auth.routes.js";
+import adminRoutes from "./interface/routes/admin.routes.js";
 import contactRoutes from "./interface/routes/contact.routes.js";
 import interactionsRoutes from "./interface/routes/interactions.routes.js";
 import productsRoutes from "./interface/routes/products.routes.js";
@@ -33,6 +34,7 @@ app.get("/api/health", (_req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/admin", adminRoutes);
 app.use("/api/contacto", contactRoutes);
 app.use("/api/medicamentos", productsRoutes);
 app.use("/api/products", productsRoutes);

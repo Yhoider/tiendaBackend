@@ -48,7 +48,7 @@ export class RecetasController {
         return;
       }
       const receta = await prisma.recetas.findFirst({
-        where: { id: req.params.id, usuario_id: req.user.id },
+        where: { id: req.params.id, ...(req.user.role === "admin" ? {} : { usuario_id: req.user.id }) },
         select: { archivo_url: true },
       });
       if (!receta) {

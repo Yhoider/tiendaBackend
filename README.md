@@ -33,7 +33,10 @@ La base de datos existente nombra sus tablas en español (`usuarios`, `medicamen
 | GET | `/api/pedidos/mias` | Autenticado |
 | GET | `/api/pedidos` | Admin |
 | POST | `/api/recetas` | Autenticado |
-| GET | `/api/recetas/:id/archivo` | Propietario autenticado |
+| GET | `/api/recetas/:id/archivo` | Propietario o admin autenticado |
+| GET/POST | `/api/admin/usuarios` | Admin |
+| GET | `/api/admin/recetas` | Admin |
+| PATCH | `/api/admin/recetas/:id` | Admin |
 
 Las rutas protegidas requieren el encabezado `Authorization: Bearer <token>`.
 
